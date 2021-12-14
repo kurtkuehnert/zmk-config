@@ -3,38 +3,28 @@
 #include <dt-bindings/zmk/bt.h>
 
 // time until tap will count as hold
-#define TIMEOUT 200
-
-// layers
-#define DEFAULT 0
-#define LEFT    1
-#define RIGHT   2
-#define TRI     3
+#define TIMEOUT 300
 
 // home row mods
-#define LMS     &lm LSHFT
-#define LMC     &lm LCTRL
-#define LMA     &lm LALT
-#define LMM     &lm LMETA
-#define RMS     &rm LSHFT
-#define RMC     &rm LCTRL
-#define RMA     &rm LALT
-#define RMM     &rm LMETA
+#define LMS &lm LSHFT
+#define LMC &lm LCTRL
+#define LMA &lm LALT
+#define LMM &lm LMETA
+#define RMS &rm LSHFT
+#define RMC &rm LCTRL
+#define RMA &rm LALT
+#define RMM &rm LMETA
 
 // enables umlauts and eszet
-#define UML     &mt RA(DQT)
-#define SS      &mt RA(S)
+#define UML &lm RA(DQT)
+#define SS  &lm RA(S)
 
 // cut, copy, paste, etc.
-#define RDO     &mt LC(Z)
-#define CPY     &mt LC(C)
-#define CUT     &mt LC(X)
-#define SAV     &mt LC(D)
-#define PST     &mt LC(V)
-
-&mt {
-  tapping-term-ms = <TIMEOUT>;
-};
+#define RDO &lm LC(Z)
+#define CPY &lm LC(C)
+#define CUT &lm LC(X)
+#define SAV &lm LC(D)
+#define PST &lm LC(V)
 
 / {
   conditional_layers {
@@ -42,8 +32,8 @@
 
     // enables third layer if first to are enabled at the same time
     tri_layer {
-        if-layers = <LEFT RIGHT>;
-        then-layer = <TRI>;
+        if-layers = <1 2>;
+        then-layer = <3>;
       };
   };
 
@@ -51,18 +41,18 @@
   behaviors {
     lm: left_mod {
       compatible = "zmk,behavior-hold-tap";
-      label = "POSITIONAL_HOLD_TAP";
+      label = "HOMEROW_MODS_LEFT";
       #binding-cells = <2>; // number of arguments
-      flavor = "balanced";
+      flavor = "tap-preferred";
       tapping-term-ms = <TIMEOUT>; // time until hold
       bindings = <&kp>, <&kp>;
       hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>; // right-hand keys
     };
     rm: right_mod {
       compatible = "zmk,behavior-hold-tap";
-      label = "POSITIONAL_HOLD_TAP";
+      label = "HOMEROW_MODS_RIGHT";
       #binding-cells = <2>; // number of arguments
-      flavor = "balanced";
+      flavor = "tap-preferred";
       tapping-term-ms = <TIMEOUT>; // time until hold
       bindings = <&kp>, <&kp>;
       hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31>; // left-hand keys
@@ -81,10 +71,10 @@
     // colemak-dh layout
  		default_layer {
 	    bindings = <
-      &kp Q  &kp W  UML F  SS  P  &kp B    &kp J     &kp L  &kp U     &kp Y    &kp SEMI
-      RMM A  RMA R  RMC S  RMS T  &kp G    &kp M     RMS N  RMC E     RMA I    RMM O
-	    RDO Z  CUT X  CPY C  SAV D  PST V	   &kp K     &kp H  &kp CMMA  &kp DOT  &kp SLASH
-          				         &mo 1  &kp SPC  &kp BKSP  &mo 2
+      &kp Q  &kp W  UML F  SS  P    &kp B    &kp J     &kp L   &kp U     &kp Y    &kp SEMI
+      RMM A  RMA R  RMC S  RMS T    &kp G    &kp M     RMS N   RMC E     RMA I    RMM O
+	    RDO Z  CUT X  CPY C  SAV D    PST V	   &kp K     &kp H   &kp CMMA  &kp DOT  &kp SLASH
+          				         &mo 1    &kp SPC  &kp BKSP  &mo 2
       >;
     };
 

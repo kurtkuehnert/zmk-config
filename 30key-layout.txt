@@ -1,0 +1,20 @@
+1  b  f  p  2  3  l  u  y  4
+q  r  s  t  g  m  n  e  i  z
+a  x  c  d  v  k  h  w  j  o
+
+
+effort: 4
+0.0 2.4 2.0 2.2 0.0 0.0 2.2 2.0 2.4 0.0
+3.0 1.3 1.1 1.0 2.0 2.0 1.0 1.1 1.3 3.0
+1.6 2.6 2.3 1.6 2.4 2.4 1.6 2.3 2.6 1.6
+penalties:
+ 2.5  3.0  4.0  #same-finger
+ 0.5  1.0  1.5  #pinky-ring
+ 0.1  0.2  0.3  #ring-middle
+-0.2 -0.1  0.0  #middle-index
+fingers: 4
+0 1 2 3 3 6 6 7 8 9
+0 1 2 3 3 6 6 7 8 9
+0 1 2 3 3 6 6 7 8 9
+type:
+matrix_simple
