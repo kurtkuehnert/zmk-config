@@ -1,0 +1,91 @@
+(defcfg
+  input  (device-file "/dev/input/by-id/usb-Keychron_Keychron_K3-event-kbd")
+  output (uinput-sink "KMonad 34-layout")
+)
+
+(defalias
+  ;; layers
+  l1  (layer-toggle layer1)
+  l2  (layer-toggle layer2)
+  l3  (layer-toggle layer3)
+
+  ;; dual use buttons
+  z   (tap-hold-next-release 300 z    C-z)
+  x   (tap-hold-next-release 300 x    C-x)
+  c   (tap-hold-next-release 300 c    C-c)
+  d   (tap-hold-next-release 300 d    C-s)
+  v   (tap-hold-next-release 300 v    C-v)
+  f   (tap-hold-next-release 300 f    +" ) ;; " enables umlauts
+  p   (tap-hold-next-release 300 p    ß  )
+
+  ;; key mods
+  a   (tap-hold-next-release 300 a    met)
+  r   (tap-hold-next-release 300 r    alt)
+  s   (tap-hold-next-release 300 s    ctl)
+  t   (tap-hold-next-release 300 t    sft)
+  n   (tap-hold-next-release 300 n    sft)
+  e   (tap-hold-next-release 300 e    ctl)
+  i   (tap-hold-next-release 300 i    alt)
+  o   (tap-hold-next-release 300 o    met)
+
+  -   (tap-hold-next-release 300 kp-  met)
+  4   (tap-hold-next-release 300 4    alt)
+  5   (tap-hold-next-release 300 5    ctl)
+  6   (tap-hold-next-release 300 6    sft)
+  lp  (tap-hold-next-release 300 \(   sft)
+  rp  (tap-hold-next-release 300 \)   ctl)
+  \_  (tap-hold-next-release 300 \_   alt)
+  \\  (tap-hold-next-release 300 \\   met)
+
+  tab (tap-hold-next-release 200 tab  met)
+  qot (tap-hold-next-release 200 "    alt) ;; "
+  '   (tap-hold-next-release 200 '    ctl)
+  !   (tap-hold-next-release 200 !    sft)
+  ;; lft (tap-hold-next-release 300 left sft)
+  ;; dwn (tap-hold-next-release 300 down ctl)
+  ;; rgt (tap-hold-next-release 300 rght alt)
+  ;; ent (tap-hold-next-release 300 ent  met)
+
+  f4  (tap-hold-next-release 200 f4   alt)
+  f5  (tap-hold-next-release 200 f5   ctl)
+  f6  (tap-hold-next-release 200 f6   sft)
+  prv (tap-hold-next-release 200 prev sft)
+  pp  (tap-hold-next-release 200 pp   ctl)
+  nxt (tap-hold-next-release 200 next alt)
+  prt (tap-hold-next-release 200 prnt met)
+)
+
+(defsrc
+  1    2    3    4    5         7    8    9    0    -
+  q    w    e    r    t         u    i    o    p    [
+  a    s    d    f    g         j    k    l    ;    '
+                 v    b         n    m
+)
+
+(deflayer main
+  q    w    @f   @p   b         j    l    u    y    ;
+  @a   @r   @s   @t   g         m    @n   @e   @i   @o
+  @z   @x   @c   @d   @v        k    h    ,    .    /
+                 @l1  spc       bspc @l2
+)
+
+(deflayer layer1
+  kp+  7    8    9    *         %    [    ]    &    |
+  @-   @4   @5   @6   /         #    @lp  @rp  @\_  @\\
+  0    1    2    3    =         ^    {    }    .    /
+                 _    _         _    @l3
+)
+
+(deflayer layer2
+  esc  ~    @    $    €         pgup home up   end  del
+  @tab @qot @'   @!   `         pgdn left down rght ent
+  XX   XX   XX   XX   XX        caps XX   XX   XX   ins
+                 @l3  _         _    _
+)
+
+(deflayer layer3
+  esc  f7   f8   f9   f10       XX  vold mute volu XX
+  @tab @f4  @f5  @f6  f11       XX  @prv @pp  @nxt @prt
+  XX   f1   f2   f3   f12       XX  brdn XX   brup XX
+                 _    _         _   _
+)
