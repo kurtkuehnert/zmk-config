@@ -81,9 +81,9 @@
     // numbers and symbols
  		left_layer {
   		bindings = <
-      &kp KP_PLUS   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MULTIPLY  &kp PRCNT  &kp LBKT  &kp RBKT  &kp AMPS   &kp PIPE
-      RMM KP_MINUS  RMA KP_N4  RMC KP_N5  RMS KP_N6  &kp KP_DIVIDE    &kp HASH   RMS LPAR  RMC RPAR  RMA UNDER  RMM BSLH
-	    &kp KP_N0     &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_EQUAL 	  &kp CARET  &kp LBRC  &kp RBRC  &kp DOT    &kp SLASH
+      &kp KP_PLUS   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MULTIPLY  &kp PRCNT  &kp LBKT  &kp RBKT  &kp LT   &kp GT
+      RMM KP_MINUS  RMA KP_N4  RMC KP_N5  RMS KP_N6  &kp KP_DIVIDE    &kp HASH   RMS LPAR  RMC RPAR  RMA LBRC RMM RBRC
+	    &kp KP_N0     &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_EQUAL 	  &kp CARET  &kp BSLH  &kp CMMA  &kp DOT  &kp SLASH
           				                        &trans     &trans           &trans     &trans
   		>;
 		};
@@ -91,10 +91,10 @@
     // navigation and symbols
 		right_layer {
   		bindings = <
-      &kp ESC  &kp TILDE  &kp AT    &kp DLLR  &none      &kp PG_UP  &kp HOME  &kp UP    &kp END     &kp DEL
-      RMM TAB  RMA DQT    RMC APOS  RMS EXCL  &kp GRAVE  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT   &kp RET
-	    &none    &none      &none     &none     &none	     &kp CAPS   &none	    &none     &kp KP_NUM  &kp INS
-          				                  &trans    &trans     &trans     &trans
+      &kp ESC  &kp TILDE  &kp AT    &kp DLLR  &kp COLON  &kp PG_UP  &kp HOME  &kp UP    &kp END     &kp DEL
+      RMM TAB  RMA DQT    RMC APOS  RMS EXCL  &kp QMARK  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT   &kp RET
+	    &none    &kp GRAVE  &kp AMPS  &kp PIPE  &none      &kp CAPS   &none	    &none     &kp KP_NUM  &kp INS
+          				                  &trans    &kp UNDER  &trans     &trans
   		>;
 		};
 
