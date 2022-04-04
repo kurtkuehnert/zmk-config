@@ -49,7 +49,7 @@
       label = "HOMEROW_MODS";
       #binding-cells = <2>;
       flavor = "tap-preferred";
-      tapping-term-ms = <180>;
+      tapping-term-ms = <160>;
       bindings = <&kp>, <&kp>;
     };
     lm: layer_mod {
@@ -68,9 +68,9 @@
     // reduced colemak-dh layout
  		default_layer {
 	    bindings = <
-        KEY Q  KEY B  UML F  ESZ P     NON      NON       KEY L    KEY U  KEY Y  RDO Z
+        NON    KEY B  UML F  ESZ P     NON      NON       KEY L    KEY U  KEY Y  NON
         RMM A  RMA R  RMC S  RMS T     KEY G    KEY M     RMS N    RMC E  RMA I  RMM O
-        NON    CUT X  CPY C  SAV D     PST V	  KEY K     KEY H    KEY W  KEY J  NON
+        KEY Q  CUT X  CPY C  SAV D     PST V	  KEY K     KEY H    KEY W  KEY J  RDO Z
                              LLM CMMA  KEY SPC  KEY BKSP  RLM DOT
       >;
     };
@@ -78,9 +78,9 @@
     // numbers and symbols
  		left_layer {
   		bindings = <
-        KEY EQUAL  KEY N7  KEY N8  KEY N9  NON        NON        KEY LBKT   KEY RBKT   KEY LT     KEY GT
+        NON        KEY N7  KEY N8  KEY N9  NON        NON        KEY BSLH   KEY PRCNT  KEY CARET  NON
         RMM N0     RMA N4  RMC N5  RMS N6  KEY PLUS   KEY ASTRK  RMS LPAR   RMC RPAR   RMA LBRC   RMM RBRC
-	      NON        KEY N1  KEY N2  KEY N3  KEY MINUS  KEY SLASH	 KEY BSLH   KEY PRCNT  KEY CARET  NON
+	      KEY EQUAL  KEY N1  KEY N2  KEY N3  KEY MINUS  KEY SLASH	 KEY LBKT   KEY RBKT   KEY LT     KEY GT
             				               TRN     TRN        KEY DEL    RLM COLON
   		>;
 		};
@@ -88,9 +88,9 @@
     // symbols and navigation
 		right_layer {
   		bindings = <
-        KEY ESC  KEY DLLR   KEY AT    KEY HASH  NON        NON        KEY HOME  KEY UP    KEY END    NON
+        NON      KEY DLLR   KEY AT    KEY HASH  NON        NON        KEY HOME  KEY UP    KEY END    NON
         RMM TAB  RMA GRAVE  RMC APOS  RMS DQT   KEY EXCL   KEY PG_UP  KEY LEFT  KEY DOWN  KEY RIGHT  KEY RET
-	      NON      KEY TILDE  KEY AMPS  KEY PIPE  KEY QMARK  KEY PG_DN  NON       NON       NON        NON
+	      KEY ESC  KEY TILDE  KEY AMPS  KEY PIPE  KEY QMARK  KEY PG_DN  NON       NON       NON        NON
             				                  LLM SEMI  KEY UNDER  TRN        TRN
   		>;
 		};
