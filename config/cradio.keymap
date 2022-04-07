@@ -54,7 +54,7 @@
     rm: repeat_mod {
       compatible = "zmk,behavior-hold-tap";
       label = "REPEAT_MOD";
-      #binding-cells = <1>;
+      #binding-cells = <2>;
       flavor = "tap-preferred";
       tapping-term-ms = <120>;
       bindings = <&mo>, <&key_repeat>;
