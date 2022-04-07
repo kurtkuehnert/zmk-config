@@ -80,7 +80,7 @@
         NON        KEY N7     KEY N8    KEY N9    NON        NON         KEY DLLR      KEY PRCNT     KEY CARET     NON
         RMM N0     RMA N4     RMC N5    RMS N6    KEY PLUS   KEY ASTRK   RMS LPAR      RMC RPAR      RMA LBRC      RMM RBRC
 	      KEY EQUAL  KEY N1     KEY N2    KEY N3    KEY MINUS  KEY SLASH	 KEY LBKT      KEY RBKT      KEY LT        KEY GT
-            				                    TRN       TRN        KEY SEMI    RLM COLON
+            				                    TRN       TRN        KEY SEMI    KEY COLON
   		>;
 		};
 
