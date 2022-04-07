@@ -89,8 +89,8 @@
   		bindings = <
         NON        KEY TILDE  KEY AT    KEY BSLH  NON        NON         KEY HOME      KEY UP        KEY END       NON
         RMM HASH   RMA GRAVE  RMC APOS  RMS DQT   KEY EXCL   KEY PG_UP   KEY LEFT      KEY DOWN      KEY RIGHT     KEY RET
-	      NON        NON        KEY AMPS  KEY PIPE  KEY QMARK  KEY PG_DN   KEY TAB       KEY BKSP      KEY DEL       KEY ESC
-            				                    TRN       KEY UNDER  TRN         TRN
+	      NON        NON        KEY AMPS  KEY PIPE  KEY QMARK  KEY PG_DN   NON           NON           NON           KEY ESC
+            				                    KEY BKSP  KEY UNDER  TRN         TRN
   		>;
 		};
 
@@ -100,7 +100,7 @@
         NON        KEY F7     KEY F8    KEY F9    NON        NON         KEY C_VOL_DN  KEY K_MUTE    KEY C_VOL_UP  NON
         RMM F12    RMA F4     RMC F5    RMS F6    KEY F10    BLU BT_CLR  RMS C_PREV    RMC C_PP      RMA C_NEXT    RMM PSCRN
 	      NON        KEY F1     KEY F2    KEY F3    KEY F11    KEY C_PWR   BLU BT_SEL 0  BLU BT_SEL 1  BLU BT_SEL 2  BLU BT_SEL 3
-            				                    TRN       TRN        TRN         TRN
+            				                    KEY DEL   KEY TAB    TRN         TRN
   		>;
 		};
 	};
