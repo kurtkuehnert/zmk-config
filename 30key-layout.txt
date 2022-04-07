@@ -2,8 +2,10 @@ https://colemakmods.github.io/mod-dh/analyze.html
 
 1  b  f  p  2  3  l  u  y  4
 a  r  s  t  g  m  n  e  i  o
-q  x  c  d  v  k  h  w  j  z
+z  w  c  d  v  k  h  j  x  q
 
+Standard Colemak DH: 1.772
+My Layout: 1.786
 
 effort: 4
 0.0 2.4 2.0 2.2 0.0 0.0 2.2 2.0 2.4 0.0
