@@ -29,27 +29,18 @@
 #define PST &hm LC(V)
 
 // layer toggle
-#define LLM &lm 1
-#define RLM &lm 2
+#define LM1 &rm 1
+#define LM2 &lm 2
+#define LM3 &lm 3
 
 / {
-  conditional_layers {
-    compatible = "zmk,conditional-layers";
-
-    // enables third layer if first to are enabled at the same time
-    combined_layer {
-        if-layers = <1 2>;
-        then-layer = <3>;
-      };
-  };
-
   behaviors {
     hm: home_row_mod {
       compatible = "zmk,behavior-hold-tap";
       label = "HOMEROW_MODS";
       #binding-cells = <2>;
       flavor = "tap-preferred";
-      tapping-term-ms = <160>;
+      tapping-term-ms = <140>;
       bindings = <&kp>, <&kp>;
     };
     lm: layer_mod {
@@ -60,6 +51,14 @@
       tapping-term-ms = <120>;
       bindings = <&mo>, <&kp>;
     };
+    rm: repeat_mod {
+      compatible = "zmk,behavior-hold-tap";
+      label = "REPEAT_MOD";
+      #binding-cells = <1>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <120>;
+      bindings = <&mo>, <&key_repeat>;
+    };
   };
 
   keymap {
@@ -68,40 +67,40 @@
     // reduced colemak-dh layout
  		default_layer {
 	    bindings = <
-        NON    KEY B  UML F  ESZ P     NON      NON       KEY L    KEY U  KEY Y  NON
-        RMM A  RMA R  RMC S  RMS T     KEY G    KEY M     RMS N    RMC E  RMA I  RMM O
-        KEY Q  CUT X  CPY C  SAV D     PST V	  KEY K     KEY H    KEY W  KEY J  RDO Z
-                             LLM CMMA  KEY SPC  KEY BKSP  RLM DOT
+        NON        KEY B      UML F     ESZ P     NON        NON         KEY L         KEY U         KEY Y         NON
+        RMM A      RMA R      RMC S     RMS T     KEY G      KEY M       RMS N         RMC E         RMA I         RMM O
+        RDO Z      CUT X      CPY C     SAV D     PST V	     KEY K       KEY H         KEY W         KEY J         KEY Q
+                                        LM1       KEY SPC    LM3 CMMA    LM2 DOT
       >;
     };
 
     // numbers and symbols
  		left_layer {
   		bindings = <
-        NON        KEY N7  KEY N8  KEY N9  NON        NON        KEY BSLH   KEY PRCNT  KEY CARET  NON
-        RMM N0     RMA N4  RMC N5  RMS N6  KEY PLUS   KEY ASTRK  RMS LPAR   RMC RPAR   RMA LBRC   RMM RBRC
-	      KEY EQUAL  KEY N1  KEY N2  KEY N3  KEY MINUS  KEY SLASH	 KEY LBKT   KEY RBKT   KEY LT     KEY GT
-            				               TRN     TRN        KEY DEL    RLM COLON
+        NON        KEY N7     KEY N8    KEY N9    NON        NON         KEY DLLR      KEY PRCNT     KEY CARET     NON
+        RMM N0     RMA N4     RMC N5    RMS N6    KEY PLUS   KEY ASTRK   RMS LPAR      RMC RPAR      RMA LBRC      RMM RBRC
+	      KEY EQUAL  KEY N1     KEY N2    KEY N3    KEY MINUS  KEY SLASH	 KEY LBKT      KEY RBKT      KEY LT        KEY GT
+            				                    TRN       TRN        KEY SEMI    RLM COLON
   		>;
 		};
 
     // symbols and navigation
 		right_layer {
   		bindings = <
-        NON      KEY DLLR   KEY AT    KEY HASH  NON        NON        KEY HOME  KEY UP    KEY END    NON
-        RMM TAB  RMA GRAVE  RMC APOS  RMS DQT   KEY EXCL   KEY PG_UP  KEY LEFT  KEY DOWN  KEY RIGHT  KEY RET
-	      KEY ESC  KEY TILDE  KEY AMPS  KEY PIPE  KEY QMARK  KEY PG_DN  NON       NON       NON        NON
-            				                  LLM SEMI  KEY UNDER  TRN        TRN
+        NON        KEY TILDE  KEY AT    KEY BSLH  NON        NON         KEY HOME      KEY UP        KEY END       NON
+        RMM HASH   RMA GRAVE  RMC APOS  RMS DQT   KEY EXCL   KEY PG_UP   KEY LEFT      KEY DOWN      KEY RIGHT     KEY RET
+	      NON        NON        KEY AMPS  KEY PIPE  KEY QMARK  KEY PG_DN   KEY TAB       KEY BKSP      KEY DEL       KEY ESC
+            				                    TRN       KEY UNDER  TRN         TRN
   		>;
 		};
 
     // function and media
 		combined_layer {
   		bindings = <
-        NON      KEY F7  KEY F8  KEY F9  NON      NON         KEY C_VOL_DN  KEY K_MUTE    KEY C_VOL_UP  NON
-        RMM F12  RMA F4  RMC F5  RMS F6  KEY F10  BLU BT_CLR  RMS C_PREV    RMC C_PP      RMA C_NEXT    RMM PSCRN
-	      NON      KEY F1  KEY F2  KEY F3  KEY F11  KEY C_PWR   BLU BT_SEL 0  BLU BT_SEL 1  BLU BT_SEL 2  BLU BT_SEL 3
-            				             TRN     TRN      TRN         TRN
+        NON        KEY F7     KEY F8    KEY F9    NON        NON         KEY C_VOL_DN  KEY K_MUTE    KEY C_VOL_UP  NON
+        RMM F12    RMA F4     RMC F5    RMS F6    KEY F10    BLU BT_CLR  RMS C_PREV    RMC C_PP      RMA C_NEXT    RMM PSCRN
+	      NON        KEY F1     KEY F2    KEY F3    KEY F11    KEY C_PWR   BLU BT_SEL 0  BLU BT_SEL 1  BLU BT_SEL 2  BLU BT_SEL 3
+            				                    TRN       TRN        TRN         TRN
   		>;
 		};
 	};
