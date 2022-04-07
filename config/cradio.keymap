@@ -28,6 +28,9 @@
 #define SAV &hm LC(S)
 #define PST &hm LC(V)
 
+#define FRT &hm RET
+#define FES &hm ESC
+
 // layer toggle
 #define LM1 &rm 1 0
 #define LM2 &lm 2
@@ -68,9 +71,9 @@
  		default_layer {
 	    bindings = <
         NON        KEY B      UML F     ESZ P     NON        NON         KEY L         KEY U         KEY Y         NON
-        RMM A      RMA R      RMC S     RMS T     KEY G      KEY M       RMS N         RMC E         RMA I         RMM O
-        UDO Z      KUT W      CPY C     PST D     SAV V	     KEY K       KEY H         KEY J         KEY X         KEY Q
-                                        LM1       KEY SPC    LM3 CMMA    LM2 DOT
+        RMM A      RMA R      RMC S     RMS T     KEY G      FRT M       RMS N         RMC E         RMA I         RMM O
+        UDO Z      KUT W      CPY C     PST D     SAV V	     FES K       KEY H         KEY J         KEY X         KEY Q
+                                        LM1       LM3 SPC    LM3 CMMA    LM2 DOT
       >;
     };
 
@@ -88,9 +91,9 @@
 		right_layer {
   		bindings = <
         NON        KEY TILDE  KEY AT    KEY BSLH  NON        NON         KEY HOME      KEY UP        KEY END       NON
-        RMM HASH   RMA GRAVE  RMC APOS  RMS DQT   KEY EXCL   KEY PG_UP   KEY LEFT      KEY DOWN      KEY RIGHT     KEY RET
-	      NON        NON        KEY AMPS  KEY PIPE  KEY QMARK  KEY PG_DN   NON           NON           NON           KEY ESC
-            				                    KEY BKSP  KEY UNDER  TRN         TRN
+        RMM HASH   RMA GRAVE  RMC APOS  RMS DQT   NON        KEY PG_UP   KEY LEFT      KEY DOWN      KEY RIGHT     NON
+	      NON        NON        KEY AMPS  KEY PIPE  NON        KEY PG_DN   NON           NON           NON           NON
+            				                    KEY BKSP  KEY UNDER  KEY EXCL    KEY QMARK
   		>;
 		};
 
