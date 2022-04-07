@@ -24,7 +24,7 @@
 // cut, copy, paste, etc.
 #define RDO &hm LC(Z)
 #define CPY &hm LC(C)
-#define CUT &hm LC(X)
+#define KUT &hm LC(X) // CUT allready defined ...
 #define SAV &hm LC(S)
 #define PST &hm LC(V)
 
@@ -69,7 +69,7 @@
 	    bindings = <
         NON        KEY B      UML F     ESZ P     NON        NON         KEY L         KEY U         KEY Y         NON
         RMM A      RMA R      RMC S     RMS T     KEY G      KEY M       RMS N         RMC E         RMA I         RMM O
-        RDO Z      CUT X      CPY C     SAV D     PST V	     KEY K       KEY H         KEY W         KEY J         KEY Q
+        RDO Z      KUT X      CPY C     SAV D     PST V	     KEY K       KEY H         KEY W         KEY J         KEY Q
                                         LM1       KEY SPC    LM3 CMMA    LM2 DOT
       >;
     };
