@@ -29,7 +29,7 @@
 #define PST &hm LC(V)
 
 // layer toggle
-#define LM1 &rm 1
+#define LM1 &rm 1 0
 #define LM2 &lm 2
 #define LM3 &lm 3
 
