@@ -43,7 +43,7 @@
       label = "HOMEROW_MODS";
       #binding-cells = <2>;
       flavor = "tap-preferred";
-      tapping-term-ms = <140>;
+      tapping-term-ms = <150>;
       bindings = <&kp>, <&kp>;
     };
     lm: layer_mod {
@@ -51,7 +51,7 @@
       label = "LAYER_MODS";
       #binding-cells = <2>;
       flavor = "tap-preferred";
-      tapping-term-ms = <120>;
+      tapping-term-ms = <150>;
       bindings = <&mo>, <&kp>;
     };
     rm: repeat_mod {
@@ -59,7 +59,7 @@
       label = "REPEAT_MOD";
       #binding-cells = <2>;
       flavor = "tap-preferred";
-      tapping-term-ms = <120>;
+      tapping-term-ms = <150>;
       bindings = <&mo>, <&key_repeat>;
     };
   };
