@@ -121,7 +121,7 @@
         &to 0      KEY L      KEY G     KEY D     NON        NON         KEY H         KEY U         KEY O         NON
         KEY I      KEY S      KEY R     KEY T     NON        NON         KEY N         KEY E         KEY A         KEY C
         NON        NON        NON       NON       NON        NON         NON           NON           NON           NON
-                                        REP       KEY SPC    LAM         NON
+                                        REP       KEY SPC    LAM         KEY BKSP
       >;
     };
 
