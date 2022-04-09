@@ -130,7 +130,7 @@
         &to 0      KEY V      KEY W     KEY M     NON        NON         KEY F         NON           KEY Z         NON
         KEY Q      KEY J      KEY P     KEY K     NON        NON         KEY B         NON           KEY X         KEY Y
         NON        NON        NON       NON       NON        NON         NON           NON           NON           NON
-                                        REP       KEY SPC    LAM         NON    
+                                        REP       KEY SPC    LAM         KEY BKSP
       >;
     };
 	};
