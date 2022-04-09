@@ -1,11 +1,18 @@
 https://colemakmods.github.io/mod-dh/analyze.html
 
-1  b  f  p  2  3  l  u  y  4
-a  r  s  t  g  m  n  e  i  o
-z  w  c  d  v  k  h  j  x  q
+Colemak DH: 1.772
+ISRT: 1.760
 
-Standard Colemak DH: 1.772
-My Layout: 1.786
+Colemak 30: 1.777 / GER 1.877
+1  k  f  p  2    3  l  u  y  4
+a  r  s  t  g    m  n  e  i  o
+z  w  c  d  v    b  h  j  x  q
+
+ISRT 30: EN 1.739 / GER 1.876
+1  c  l  m  2    3  f  u  z  4
+i  s  r  t  g    p  n  e  a  o
+y  v  w  d  k    b  h  j  x  q
+
 
 effort: 4
 0.0 2.4 2.0 2.2 0.0 0.0 2.2 2.0 2.4 0.0

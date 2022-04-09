@@ -70,9 +70,9 @@
     // reduced colemak-dh layout
  		default_layer {
 	    bindings = <
-        NON        KEY B      UML F     ESZ P     NON        NON         KEY L         KEY U         KEY Y         NON
+        NON        KEY K      UML F     ESZ P     NON        NON         KEY L         KEY U         KEY Y         NON
         RMM A      RMA R      RMC S     RMS T     KEY G      FRT M       RMS N         RMC E         RMA I         RMM O
-        UDO Z      KUT W      CPY C     PST D     SAV V	     FES K       KEY H         KEY J         KEY X         KEY Q
+        UDO Z      KUT W      CPY C     PST D     SAV V	     FES B       KEY H         KEY J         KEY X         KEY Q
                                         LM1       LM3 SPC    LM3 CMMA    LM2 DOT
       >;
     };
