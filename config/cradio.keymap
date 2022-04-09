@@ -6,6 +6,7 @@
 #define NON &none
 #define KEY &kp
 #define BLU &bt
+#define REP &key_repeat
 
 // home row mods
 #define LMS &hm LSHFT
@@ -36,6 +37,8 @@
 #define LM2 &lm 2
 #define LM3 &lm 3
 
+#define LAM &am
+
 / {
   behaviors {
     hm: home_row_mod {
@@ -62,6 +65,12 @@
       tapping-term-ms = <150>;
       bindings = <&mo>, <&key_repeat>;
     };
+    am: alpha_macro {
+		  compatible = "zmk,behavior-macro";
+		  label = "ALPHA_MACRO";
+		  #binding-cells = <0>;
+		  bindings = <&sl 5>;
+	  };
   };
 
   keymap {
@@ -70,7 +79,7 @@
     // reduced colemak-dh layout
  		default_layer {
 	    bindings = <
-        NON        KEY K      UML F     ESZ P     NON        NON         KEY L         KEY U         KEY Y         NON
+        &to 4      KEY K      UML F     ESZ P     NON        NON         KEY L         KEY U         KEY Y         NON
         RMM A      RMA R      RMC S     RMS T     KEY G      FRT M       RMS N         RMC E         RMA I         RMM O
         UDO Z      KUT W      CPY C     PST D     SAV V	     FES B       KEY H         KEY J         KEY X         KEY Q
                                         LM1       LM3 SPC    LM3 CMMA    LM2 DOT
@@ -106,5 +115,23 @@
             				                    KEY DEL   KEY TAB    KEY EXCL    KEY QMARK
   		>;
 		};
+
+    alpha1 {
+      bindings = <
+        &to 0      KEY L      KEY G     KEY D     NON        NON         KEY H         KEY U         KEY O         NON
+        KEY I      KEY S      KEY R     KEY T     NON        NON         KEY N         KEY E         KEY A         KEY C
+        NON        NON        NON       NON       NON        NON         NON           NON           NON           NON
+                                        REP       KEY SPC    LAM         NON
+      >;
+    };
+
+    alpha2 {
+      bindings = <
+        &to 0      KEY V      KEY W     KEY M     NON        NON         KEY F         NON           KEY Z         NON
+        KEY Q      KEY J      KEY P     KEY K     NON        NON         KEY B         NON           KEY X         KEY Y
+        NON        NON        NON       NON       NON        NON         NON           NON           NON           NON
+                                        REP       KEY SPC    LAM         NON    
+      >;
+    };
 	};
 };
