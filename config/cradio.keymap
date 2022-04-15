@@ -2,13 +2,31 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+// layers
+#define L_DEF   0
+#define L_LFT   1
+#define L_RGT   2
+#define L_FUN   3
+
+#define L_ALP1  4
+#define L_ALP2  5
+#define L_SYM1  6
+#define L_SYM2  7
+#define L_NUM   8
+#define L_FUNC  9
+#define L_SYS  10
+#define L_UTL  11
+
+// redefine to fit width of three
 #define TRN &trans
 #define NON &none
 #define KEY &kp
 #define BLU &bt
 #define REP &key_repeat
 #define BTL &bootloader
+#define CAP &caps_word
 
+// redefine to fit width of five
 #define BTCLR BT_CLR
 #define BT1 BT_SEL 0
 #define BT2 BT_SEL 1
@@ -20,36 +38,35 @@
 #define PREV C_PREV
 #define NEXT C_NEXT
 
+#define UML &hm RA(U)
+#define ESZ &hm RA(S)
+#define UDO &hm LM(Z)
+#define CPY &hm LM(C)
+#define KUT &hm LM(X)
+#define SAV &hm LM(S)
+#define PST &hm LM(V)
+#define FRT &hm RET
+#define FES &hm ESC
+
 // home row mods
 #define LMS &hm LSHFT
 #define LMC &hm LCTRL
 #define LMA &hm LALT
 #define LMM &hm LMETA
-#define RMS &hm LSHFT
-#define RMC &hm LCTRL
-#define RMA &hm LALT
-#define RMM &hm LMETA
-
-// enables umlauts and eszet
-#define UML &hm RA(DQT)
-#define ESZ &hm RA(S)
-
-// cut, copy, paste, etc.
-#define UDO &hm LC(Z)
-#define CPY &hm LC(C)
-#define KUT &hm LC(X) // CUT allready defined ...
-#define SAV &hm LC(S)
-#define PST &hm LC(V)
-
-#define FRT &hm RET
-#define FES &hm ESC
+#define RMS &hm RSHFT
+#define RMC &hm RCTRL
+#define RMA &hm RALT
+#define RMM &hm RMETA
 
 // layer toggle
-#define LM1 &rm 1 0
-#define LM2 &lm 2
-#define LM3 &lm 3
+#define LM1 &rm L_LFT 0
+#define LM2 &lm L_RGT
+#define LM3 &lm L_FUN
 
-#define LAM &am
+#define SYM &rm L_SYM1 0
+#define NUM &lm L_NUM
+#define SYS &lm L_SYS
+#define UTL &lm L_UTL
 
 / {
   behaviors {
@@ -77,12 +94,10 @@
       tapping-term-ms = <150>;
       bindings = <&mo>, <&key_repeat>;
     };
-    am: alpha_macro {
-		  compatible = "zmk,behavior-macro";
-		  label = "ALPHA_MACRO";
-		  #binding-cells = <0>;
-		  bindings = <&sl 5>;
-	  };
+
+    ZMK_MACRO(TOG_ALP2, bindings = <&sl L_ALP2>;)
+    ZMK_MACRO(TOG_SYM2, bindings = <&sl L_SYM2>;)
+    ZMK_MACRO(TOG_FUNC, bindings = <&sl L_FUNC>;)
   };
 
   keymap {
@@ -90,10 +105,10 @@
 
  		default_layer {
 	    bindings = <
-        &to 4      KEY B      UML F      ESZ P      NON        NON        KEY L      KEY U      KEY Y      NON
+        &to L_ALP1 KEY B      UML F      ESZ P      NON        NON        KEY L      KEY U      KEY Y      NON
         RMM A      RMA R      RMC S      RMS T      KEY G      FRT M      RMS N      RMC E      RMA I      RMM O
         UDO Z      KUT W      CPY C      PST D      SAV V	     FES K      KEY H      KEY J      KEY X      KEY Q
-                                         LM1        LM3 SPC    LM3 CMMA   LM2 DOT
+                                         LM1        KEY SPC    LM3 CMMA   LM2 DOT
       >;
     };
  		left_layer {
@@ -107,8 +122,8 @@
 		right_layer {
   		bindings = <
         NON        KEY TILDE  KEY AT     KEY BSLH   NON        NON        KEY HOME   KEY UP     KEY END    NON
-        RMM HASH   RMA GRAVE  RMC APOS   RMS DQT    NON        KEY PG_UP  KEY LEFT   KEY DOWN   KEY RIGHT  NON
-	      NON        NON        KEY AMPS   KEY PIPE   NON        KEY PG_DN  NON        NON        NON        NON
+        RMM HASH   RMA GRAVE  RMC APOS   RMS DQT    KEY EXCL   KEY PG_UP  KEY LEFT   KEY DOWN   KEY RIGHT  NON
+	      NON        NON        KEY AMPS   KEY PIPE   KEY QMARK  KEY PG_DN  NON        NON        NON        NON
             				                     KEY BKSP   KEY UNDER  TRN        TRN
   		>;
 		};
@@ -116,78 +131,76 @@
   		bindings = <
         NON        KEY F7     KEY F8     KEY F9     NON        NON        KEY VOLUP  KEY MUTE   KEY VOLDN  NON
         RMM F12    RMA F4     RMC F5     RMS F6     KEY F10    BLU BTCLR  RMS PREV   RMC C_PP   RMA NEXT   RMM PSCRN
-	      NON        KEY F1     KEY F2     KEY F3     KEY F11    KEY C_PWR  BLU BT1    BLU BT2    BLU BT3    BLU BT4
-            				                     KEY DEL    KEY TAB    KEY EXCL   KEY QMARK
+        NON        KEY F1     KEY F2     KEY F3     KEY F11    KEY C_PWR  BLU BT1    BLU BT2    BLU BT3    BLU BT4
+            				                     KEY DEL    KEY TAB    TRN        TRN
   		>;
 		};
 
-    number_layer {
+
+    
+    alpha1_layer {
       bindings = <
-        NON        KEY N5     KEY N4     KEY PLUS   NON        NON        KEY ASTRK  KEY N8     KEY N9     NON
-        KEY N3     KEY N2     KEY N1     KEY MINUS  NON        NON        KEY SLASH  KEY N0     KEY N6     KEY N7
+        &to L_DEF  LUT L      UML W      ESZ D      NON        NON        KEY H      KEY U      LSY O      NON
+        LMM I      LMA S      LMC R      LMS T      NON        NON        RMS N      RMC E      RMA A      RMM C
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         NON        NON        NON        NON
+                                         LSM        KEY SPC    TOG_ALP2   LNU BKSP
+      >;
+    };
+    alpha2_layer {
+      bindings = <
+        NON        KEY V      KEY P      KEY M      NON        NON        KEY F      KEY DOT    LSY Z      NON
+        LMM Q      LMA J      LMC G      LMS K      NON        NON        RMS B      RMC CMMA   RMA X      RMM Y
+        NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
+                                         LSM        KEY TAB    KEY 0      LNU DEL
       >;
     };
     symbol1_layer {
       bindings = <
-        NON        KEY DLLR   KEY LT     KEY GT     NON        NON        KEY LBKT   KEY RBKT   KEY BSLH   NON
-        KEY HASH   TRN        KEY LBRC   KEY RBRC   NON        NON        KEY LPAR   KEY RPAR   KEY AMPS   KEY PIPE
+        NON        KEY AMPS   KEY PIPE   KEY PRCNT  NON        NON        KEY AT     KEY COLON  KEY DLLR   NON
+        LMM LT     LMA LBRC   LMC LBKT   LMS LPAR   NON        NON        RMS DQT    RMC SEMI   RMA APOS   RMM HASH
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         NON        NON        NON        NON
+                                         TRN        KEY SPC    TOG_SYM2   KEY BKSP
       >;
     };
     symbol2_layer {
       bindings = <
-        NON        KEY N5     KEY N4     KEY PLUS   NON        NON        KEY ASTRK  KEY N8     KEY N9     NON
-        KEY N3     KEY N2     KEY N1     KEY MINUS  NON        NON        KEY SLASH  KEY N0     TRN        KEY N7
+        NON        NON        NON        KEY CARET  NON        NON        NON        KEY QMARK  NON        NON
+        LMM GT     LMA RBRC   LMC RBKT   LMS RPAR   NON        NON        RMS BSLH   RMC EXCL   RMA GRAVE  RMM TILDE
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         NON        NON        NON        NON
+                                         TRN        KEY TAB    KEY 0      KEY DEL
+      >;
+    };
+    number_layer {
+      bindings = <
+        NON        KEY N5     KEY N4     KEY PLUS   NON        NON        KEY ASTRK  KEY N8     KEY N9     NON
+        LMM N3     LMA N2     LMC N1     LMS MINUS  NON        NON        RMS SLASH  RMC N0     RMA N6     RMM N7
+        NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
+                                         KEY EQUAL  KEY UNDER  TOG_FUNC   TRN
+      >;
+    };
+    function_layer {
+      bindings = <
+        NON        KEY F5     KEY F4     KEY PSCRN  NON        NON        KEY F11    KEY F8     KEY F9     NON
+        LMM F3     LMA F2     LMC F1     LMS C_PWR  NON        NON        RMS F12    RMC F10    RMA F6     RMM F7
+        NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
+                                         NON        NON        KEY 0      TRN
       >;
     };
     system_layer {
       bindings = <
-        NON        NON        NON        KEY PG_UP  NON        NON        KEY HOME   KEY UP     KEY END    NON
-        TRN        NON        NON        KEY PG_DN  NON        NON        KEY LEFT   KEY DOWN   KEY RIGHT  NON
+        NON        KEY HOME   KEY UP     KEY END    NON        NON        KEY PG_UP  CAP        TRN        NON
+        KEY ESC    KEY LEFT   KEY DOWN   KEY RIGHT  NON        NON        KEY PG_DN  KEY INS    NON        KEY RET
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
                                          NON        NON        NON        NON
       >;
     };
     utility_layer {
       bindings = <
-        NON        KEY C_PWR  BLU BTCLR  BTL        NON        NON        KEY VOLUP  KEY MUTE   KEY VOLDN  NON
-        BLU BT1    BLU BT2    BLU BT3    BLU BT4    NON        NON        KEY PREV   KEY C_PP   KEY NEXT   TRN
+        NON        TRN        BLU BT4    BLU BT3    NON        NON        KEY VOLUP  KEY MUTE   KEY VOLDN  NON
+        BTL        NON        BLU BT2    BLU BT1    NON        NON        KEY PREV   KEY C_PP   KEY NEXT   BLU BTCLR
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
                                          NON        NON        NON        NON
       >;
-    };
-
-
-    alpha1_layer {
-      bindings = <
-        &to 0      KEY L      KEY G      KEY D      NON        NON        KEY H      KEY U      KEY O      NON
-        KEY I      KEY S      KEY R      KEY T      NON        NON        KEY N      KEY E      KEY A      KEY C
-        NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         REP        KEY SPC    LAM        KEY BKSP
-      >;
-    };
-
-    alpha2_layer {
-      bindings = <
-        NON        KEY V      KEY W      KEY M      NON        NON        KEY F      NON        KEY Z      NON
-        KEY Q      KEY J      KEY P      KEY K      NON        NON        KEY B      NON        KEY X      KEY Y
-        NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         REP        KEY SPC    LAM        KEY BKSP
-      >;
-    };
-
-    alpha2_capital_layer {
-      bindings = <
-        NON        KEY LS(V)  KEY LS(W)  KEY LS(M)  NON        NON        KEY LS(F)  NON        KEY LS(Z)  NON
-        KEY LS(Q)  KEY LS(J)  KEY LS(P)  KEY LS(K)  NON        NON        KEY LS(B)  NON        KEY LS(X)  KEY LS(Y)
-        NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         TRN        TRN        TRN        TRN
-      >;
-    };
+    };    
 	};
 };
