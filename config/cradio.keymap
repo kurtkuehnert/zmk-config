@@ -142,7 +142,7 @@
         &to L_DEF  UTL L      UML W      ESZ D      NON        NON        KEY H      KEY U      SYS O      NON
         LMM I      LMA S      LMC R      LMS T      NON        NON        RMS N      RMC E      RMA A      RMM C
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         LSM        KEY SPC    TOG_ALP2   LNU BKSP
+                                         SYM        KEY SPC    TOG_ALP2   NUM BKSP
       >;
     };
     alpha2_layer {
@@ -150,7 +150,7 @@
         NON        UTL V      KEY P      KEY M      NON        NON        KEY F      KEY DOT    SYS Z      NON
         LMM Q      LMA J      LMC G      LMS K      NON        NON        RMS B      RMC CMMA   RMA X      RMM Y
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         LSM        KEY TAB    KEY 0      LNU DEL
+                                         SYM        KEY TAB    KEY 0      NUM DEL
       >;
     };
     symbol1_layer {
