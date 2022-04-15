@@ -7,7 +7,6 @@
 #define L_LFT        1
 #define L_RGT        2
 #define L_FUN        3
-
 #define L_ALP1       4
 #define L_ALP2       5
 #define L_SYM1       6
@@ -38,6 +37,7 @@
 #define PREV        C_PREV
 #define NEXT        C_NEXT
 
+// shortcuts
 #define UML         &hm RA(U)
 #define ESZ         &hm RA(S)
 #define UDO         &hm LG(Z)
@@ -58,11 +58,10 @@
 #define RMA         &hm RALT
 #define RMM         &hm RMETA
 
-// layer toggle
+// layer toggles
 #define LM1         &rm L_LFT 0
 #define LM2         &lm L_RGT
 #define LM3         &lm L_FUN
-
 #define SYM         &rm L_SYM1 0
 #define NUM         &lm L_NUM
 #define SYS         &lm L_SYS
@@ -140,7 +139,7 @@
     
     alpha1_layer {
       bindings = <
-        &to L_DEF  LUT L      UML W      ESZ D      NON        NON        KEY H      KEY U      LSY O      NON
+        &to L_DEF  UTL L      UML W      ESZ D      NON        NON        KEY H      KEY U      SYS O      NON
         LMM I      LMA S      LMC R      LMS T      NON        NON        RMS N      RMC E      RMA A      RMM C
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
                                          LSM        KEY SPC    TOG_ALP2   LNU BKSP
@@ -148,7 +147,7 @@
     };
     alpha2_layer {
       bindings = <
-        NON        KEY V      KEY P      KEY M      NON        NON        KEY F      KEY DOT    LSY Z      NON
+        NON        UTL V      KEY P      KEY M      NON        NON        KEY F      KEY DOT    SYS Z      NON
         LMM Q      LMA J      LMC G      LMS K      NON        NON        RMS B      RMC CMMA   RMA X      RMM Y
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
                                          LSM        KEY TAB    KEY 0      LNU DEL
