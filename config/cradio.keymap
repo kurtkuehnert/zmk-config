@@ -6,13 +6,13 @@
 #define L_DEF        0
 #define L_LFT        1
 #define L_RGT        2
-#define L_FUN        3
+#define L_TRD        3
 #define L_ALP1       4
 #define L_ALP2       5
 #define L_SYM1       6
 #define L_SYM2       7
 #define L_NUM        8
-#define L_FUNC       9
+#define L_FUN        9
 #define L_SYS       10
 #define L_UTL       11
 
@@ -24,6 +24,7 @@
 #define REP         &key_repeat
 #define BTL         &bootloader
 #define CAP         &caps_word
+#define RES         &key 0
 
 // redefine to fit width of five
 #define BTCLR       BT_CLR
@@ -61,14 +62,15 @@
 // layer toggles
 #define LM1         &rm L_LFT 0
 #define LM2         &lm L_RGT
-#define LM3         &lm L_FUN
+#define LM3         &lm L_TRD
 #define SYM1        &rm L_SYM1 0
 #define NUM         &lm L_NUM
+#define FUN         &lm L_FUN
 #define SYS         &lm L_SYS
 #define UTL         &lm L_UTL
-#define ALP2        &t_alp2
-#define SYM2        &t_sym2
-#define FUNC        &t_func
+#define TA2         &t_alp2
+#define TS2         &t_sym2
+#define TFN         &t_fun
 
 / {
   behaviors {
@@ -99,7 +101,7 @@
 
     ZMK_MACRO(t_alp2, bindings = <&sl L_ALP2>;)
     ZMK_MACRO(t_sym2, bindings = <&sl L_SYM2>;)
-    ZMK_MACRO(t_func, bindings = <&sl L_FUNC>;)
+    ZMK_MACRO(t_fun,  bindings = <&sl L_FUN>;)
   };
 
   keymap {
@@ -129,7 +131,7 @@
             				                     KEY BKSP   KEY UNDER  TRN        TRN
   		>;
 		};
-		function_layer {
+		third_layer {
   		bindings = <
         NON        KEY F7     KEY F8     KEY F9     NON        NON        KEY VOLUP  KEY MUTE   KEY VOLDN  NON
         RMM F12    RMA F4     RMC F5     RMS F6     KEY F10    BLU BTCLR  RMS PREV   RMC C_PP   RMA NEXT   RMM PSCRN
@@ -145,7 +147,7 @@
         &to L_DEF  UTL L      UML W      ESZ D      NON        NON        KEY H      KEY U      SYS O      NON
         LMM I      LMA S      LMC R      LMS T      NON        NON        RMS N      RMC E      RMA A      RMM C
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         SYM1       KEY SPC    ALP2       NUM BKSP
+                                         SYM1       KEY SPC    TA2        NUM BKSP
       >;
     };
     alpha2_layer {
@@ -153,7 +155,7 @@
         NON        UTL V      KEY P      KEY M      NON        NON        KEY F      KEY DOT    SYS Z      NON
         LMM Q      LMA J      LMC G      LMS K      NON        NON        RMS B      RMC CMMA   RMA X      RMM Y
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         SYM1       KEY TAB    KEY 0      NUM DEL
+                                         SYM1       KEY TAB    RES        FUN DEL
       >;
     };
     symbol1_layer {
@@ -161,7 +163,7 @@
         NON        KEY AMPS   KEY PIPE   KEY PRCNT  NON        NON        KEY AT     KEY COLON  KEY DLLR   NON
         LMM LT     LMA LBRC   LMC LBKT   LMS LPAR   NON        NON        RMS DQT    RMC SEMI   RMA APOS   RMM HASH
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         TRN        KEY SPC    SYM2       KEY BKSP
+                                         TRN        KEY SPC    TS2        KEY BKSP
       >;
     };
     symbol2_layer {
@@ -169,7 +171,7 @@
         NON        NON        NON        KEY CARET  NON        NON        NON        KEY QMARK  NON        NON
         LMM GT     LMA RBRC   LMC RBKT   LMS RPAR   NON        NON        RMS BSLH   RMC EXCL   RMA GRAVE  RMM TILDE
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         TRN        KEY TAB    KEY 0      KEY DEL
+                                         TRN        KEY TAB    RES        KEY DEL
       >;
     };
     number_layer {
@@ -177,7 +179,7 @@
         NON        KEY N5     KEY N4     KEY PLUS   NON        NON        KEY ASTRK  KEY N8     KEY N9     NON
         LMM N3     LMA N2     LMC N1     LMS MINUS  NON        NON        RMS SLASH  RMC N0     RMA N6     RMM N7
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         KEY EQUAL  KEY UNDER  FUNC       TRN
+                                         KEY EQUAL  KEY UNDER  TFN       TRN
       >;
     };
     function_layer {
@@ -185,7 +187,7 @@
         NON        KEY F5     KEY F4     KEY PSCRN  NON        NON        KEY F11    KEY F8     KEY F9     NON
         LMM F3     LMA F2     LMC F1     LMS C_PWR  NON        NON        RMS F12    RMC F10    RMA F6     RMM F7
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-                                         NON        NON        KEY 0      TRN
+                                         NON        NON        RES        TRN
       >;
     };
     system_layer {
@@ -198,7 +200,7 @@
     };
     utility_layer {
       bindings = <
-        NON        TRN        BLU BT4    BLU BT3    NON        NON        KEY VOLUP  KEY MUTE   KEY VOLDN  NON
+        NON        TRN        BLU BT4    BLU BT3    NON        NON        KEY VOLDN  KEY MUTE   KEY VOLUP  NON
         BTL        NON        BLU BT2    BLU BT1    NON        NON        KEY PREV   KEY C_PP   KEY NEXT   BLU BTCLR
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
                                          NON        NON        NON        NON
