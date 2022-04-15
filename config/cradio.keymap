@@ -24,7 +24,7 @@
 #define REP         &key_repeat
 #define BTL         &bootloader
 #define CAP         &caps_word
-#define RES         &key 0
+#define RES         &kp 0
 
 // redefine to fit width of five
 #define BTCLR       BT_CLR
