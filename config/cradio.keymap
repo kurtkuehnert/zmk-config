@@ -209,15 +209,14 @@
         BTL        NON        BLU BT2    BLU BT1    NON        NON        KEY PREV   KEY C_PP   KEY NEXT   BLU BTCLR
                                          NON        NON        NON        NON
       >;
-    };    
-	};
-
-  gaming_layer {
+    }; 
+    gaming_layer {
 	    bindings = <
         KEY N1     KEY N2     KEY N3     KEY N4     KEY ESC    NON        NON        NON        NON        &to L_DEF
         KEY Q      KEY W      KEY E      KEY R      KEY F      NON        NON        NON        NON        NON
         KEY P      KEY V      KEY G      KEY D      KEY B	     NON        NON        NON        NON        NON
                                          KEY TAB    KEY SPC    NON        NON
       >;
-    };
+    };   
+	};
 };
