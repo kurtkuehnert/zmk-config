@@ -167,7 +167,7 @@
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
         NON        KEY AMPS   KEY PIPE   KEY PRCNT  NON        NON        KEY AT     KEY COLON  KEY DLLR   NON
         LMM LT     LMA LBRC   LMC LBKT   LMS LPAR   NON        NON        RMS DQT    RMC SEMI   RMA APOS   RMM HASH
-                                         TRN        KEY SPC    TS2        KEY BKS
+                                         TRN        KEY SPC    TS2        KEY BKSP
       >;
     };
     symbol2_layer {
