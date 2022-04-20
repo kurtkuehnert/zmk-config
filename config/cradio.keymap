@@ -110,7 +110,7 @@
 
  		default_layer {
 	    bindings = <
-        KEY B      KEY B      UML F      ESZ P      &to L_ALP1 &to L_GAM  KEY L      KEY U      KEY Y      NON
+        KEY B      KEY B      UML F      ESZ P      &to L_ALP1 NON        KEY L      KEY U      KEY Y      &to L_GAM
         RMM A      RMA R      RMC S      RMS T      KEY G      FRT M      RMS N      RMC E      RMA I      RMM O
         UDO Z      KUT W      CPY C      PST D      SAV V	     FES K      KEY H      KEY J      KEY X      KEY Q
                                          LM1        KEY SPC    LM3 CMMA   LM2 DOT
@@ -167,7 +167,7 @@
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
         NON        KEY AMPS   KEY PIPE   KEY PRCNT  NON        NON        KEY AT     KEY COLON  KEY DLLR   NON
         LMM LT     LMA LBRC   LMC LBKT   LMS LPAR   NON        NON        RMS DQT    RMC SEMI   RMA APOS   RMM HASH
-                                         TRN        KEY SPC    TS2        KEY BKSP
+                                         TRN        KEY SPC    TS2        KEY BKS
       >;
     };
     symbol2_layer {
@@ -214,7 +214,7 @@
 
   gaming_layer {
 	    bindings = <
-        KEY N1     KEY N2     KEY N3     KEY N4     KEY ESC    &to L_DEF  NON        NON        NON        NON
+        KEY N1     KEY N2     KEY N3     KEY N4     KEY ESC    NON        NON        NON        NON        &to L_DEF
         KEY Q      KEY W      KEY E      KEY R      KEY F      NON        NON        NON        NON        NON
         KEY P      KEY V      KEY G      KEY D      KEY B	     NON        NON        NON        NON        NON
                                          KEY TAB    KEY SPC    NON        NON
