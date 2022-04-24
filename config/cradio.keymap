@@ -173,7 +173,7 @@
     alpha2_layer {
       bindings = <
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
-        NON        UTL V      KEY P      KEY M      NON        NON        KEY F      KEY DOT    SYS Z      NON
+        NON        KEY V      KEY P      KEY M      NON        NON        KEY F      KEY DOT    KEY Z      NON
         LMM Q      LMA J      LMC G      LMS K      NON        NON        RMS B      RMC CMMA   RMA X      RMM Y
                                          SYM1       KEY UNDER  RES        FUN 0
       >;
