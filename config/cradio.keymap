@@ -191,7 +191,7 @@
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
         NON        NON        NON        KEY CARET  NON        NON        NON        KEY QMARK  NON        NON
         LMM GT     LMA RBRC   LMC RBKT   LMS RPAR   NON        NON        RMS BSLH   RMC EXCL   RMA GRAVE  RMM TILDE
-                                         NON        NON        RES        KEY DEL
+                                         NON        NON        RES        NON
       >;
     };
     number_layer {
@@ -207,7 +207,7 @@
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
         NON        KEY F5     KEY F4     KEY PSCRN  NON        NON        KEY F11    KEY F8     KEY F9     NON
         LMM F3     LMA F2     LMC F1     LMS C_PWR  NON        NON        RMS F12    RMC F10    RMA F6     RMM F7
-                                         KEY BKSP   NON        NON        NON
+                                         NON        NON        NON        NON
       >;
     };
     navigation_layer {
@@ -215,7 +215,7 @@
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
         NON        KEY HOME   KEY UP     KEY END    NON        NON        KEY PG_UP  NON        NON        NON
         NON        KEY LEFT   KEY DOWN   KEY RIGHT  NON        NON        RMS PG_DN  RMC 0      RMA 0      RMM INS
-                                         NON        NON        NON        NON
+                                         NON        NON        NON        KEY RET
       >;
     };
     utility_layer {
@@ -223,7 +223,7 @@
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
         NON        BLU BT5    BLU BT4    BLU BTCLR  NON        NON        KEY VOLDN  KEY MUTE   KEY VOLUP  NON
         BLU BT3    BLU BT2    BLU BT1    BTL        NON        NON        KEY PREV   KEY C_PP   KEY NEXT   NON
-                                         NON        NON        NON        NON
+                                         KEY ESC    KEY TAB    NON        NON
       >;
     }; 
     gaming_layer {
