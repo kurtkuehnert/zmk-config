@@ -77,6 +77,15 @@
 #define UTL         &lms L_UTL 0
 
 / {
+  combos {
+    compatible = "zmk,combos";
+    combo_caps_words {
+      timeout-ms = <150>;
+      key-positions = <23 26>;
+      bindings = <&caps_word>;
+    };
+  };  
+
   behaviors {
     ZMK_MACRO(tog_alp2, bindings = <&sl L_ALP2>;)
     ZMK_MACRO(tog_sym2, bindings = <&sl L_SYM2>;)
@@ -166,7 +175,7 @@
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
         NON        KEY V      KEY P      KEY M      NON        NON        KEY F      KEY DOT    KEY Z      NON
         LMM Q      LMA J      LMC G      LMS K      NON        NON        RMS B      RMC CMMA   RMA X      RMM Y
-                                         UTL        KEY UNDER  RES        FUN
+                                         FUN        KEY UNDER  RES        UTL
       >;
     };
     symbol1_layer {
