@@ -68,18 +68,18 @@
 #define LM2         &lms L_RGT
 #define LM3         &lms L_TRD
 
-#define ALP2        &t_alp2
+#define ALP2        &tog_alp2
 #define SYM1        &rm  L_SYM1 0
-#define SYM2        &t_sym2
+#define SYM2        &tog_sym2
 #define NUM         &lms L_NUM 0
 #define NAV         &lml L_NAV
-#define FUN         &lms L_FUN
-#define UTL         &lms L_UTL
+#define FUN         &lms L_FUN 0
+#define UTL         &lms L_UTL 0
 
 / {
   behaviors {
-    ZMK_MACRO(t_alp2, bindings = <&sl L_ALP2>;)
-    ZMK_MACRO(t_sym2, bindings = <&sl L_SYM2>;)
+    ZMK_MACRO(tog_alp2, bindings = <&sl L_ALP2>;)
+    ZMK_MACRO(tog_sym2, bindings = <&sl L_SYM2>;)
     
     hm: home_row_mod {
       compatible = "zmk,behavior-hold-tap";
