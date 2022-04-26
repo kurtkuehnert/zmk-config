@@ -473,7 +473,7 @@
         NON        NON        NON        NON        NON        &to L_DEF  NON        NON        NON        NON 
         KEY R      KEY S      KEY N      KEY I      NON        NON        KEY I      KEY N      KEY S      KEY R
         KEY A      KEY O      KEY T      KEY E      NON        NON        KEY E      KEY T      KEY O      KEY A
-                                         KEY SPC    KEY BSPC   KEY BSPC   KEY SPC
+                                         KEY BSPC   KEY SPC    KEY SPC   KEY BSPC
       >;
     };
 
