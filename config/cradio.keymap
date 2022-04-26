@@ -77,14 +77,15 @@
 #define UTL         &lms L_UTL 0
 
 / {
-  combos {
-    compatible = "zmk,combos";
-    combo_caps_words {
-      timeout-ms = <150>;
-      key-positions = <23 26>;
-      bindings = <&caps_word>;
-    };
-  };  
+  // does not work properly
+  // combos {
+  //   compatible = "zmk,combos";
+  //   combo_caps_words {
+  //     timeout-ms = <150>;
+  //     key-positions = <23 26>;
+  //     bindings = <&caps_word>;
+  //   };
+  // };  
 
   behaviors {
     ZMK_MACRO(tog_alp2, bindings = <&sl L_ALP2>;)
@@ -111,7 +112,7 @@
       label = "LAYER_MODS_LONG";
       #binding-cells = <2>;
       flavor = "tap-preferred";
-      tapping-term-ms = <250>;
+      tapping-term-ms = <200>;
       bindings = <&mo>, <&kp>;
     };    
     rm: repeat_mod {
@@ -131,7 +132,7 @@
 	  bindings = <
         KEY B      KEY B      UML F      ESZ P      &to L_ALP1 NON        KEY L      KEY U      KEY Y      &to L_GAM
         RMM A      RMA R      RMC S      RMS T      KEY G      FRT M      RMS N      RMC E      RMA I      RMM O
-        UDO Z      KUT W      CPY C      PST D      SAV V	     FES K      KEY H      KEY J      KEY X      KEY Q
+        UDO Z      KUT W      CPY C      PST D      SAV V	   FES K      KEY H      KEY J      KEY X      KEY Q
                                          LM1        KEY SPC    LM3 CMMA   LM2 DOT
       >;
     };
@@ -165,7 +166,7 @@
     alpha1_layer {
       bindings = <
         NON        NON        NON        NON        &to L_DEF  NON        NON        NON        NON        NON
-        NON        UDO L      SAV W      UML D      NON        NON        PST H      CPY U      KUT O      NON
+        NON        KUT L      CPY W      PST D      NON        NON        UML H      UDO U      SAV O      NON
         LMM I      LMA S      LMC R      LMS T      NON        NON        RMS N      RMC E      RMA A      RMM C
                                          SYM1       NAV SPC    ALP2       NUM
       >;
@@ -191,7 +192,7 @@
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
         NON        NON        NON        KEY CARET  NON        NON        NON        KEY QMARK  NON        NON
         LMM GT     LMA RBRC   LMC RBKT   LMS RPAR   NON        NON        RMS BSLH   RMC EXCL   RMA GRAVE  RMM TILDE
-                                         NON        NON        RES        NON
+                                         NON        NON        RES        KEY DEL
       >;
     };
     number_layer {
@@ -215,7 +216,7 @@
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
         NON        KEY F5     KEY F4     KEY PSCRN  NON        NON        KEY F11    KEY F8     KEY F9     NON
         LMM F3     LMA F2     LMC F1     LMS C_PWR  NON        NON        RMS F12    RMC F10    RMA F6     RMM F7
-                                         NON        NON        NON        NON
+                                         NON        NON        NON        KEY DEL
       >;
     };
     utility_layer {
@@ -223,7 +224,7 @@
         NON        NON        NON        NON        NON        NON        NON        NON        NON        NON
         NON        BLU BT5    BLU BT4    BLU BTCLR  NON        NON        KEY VOLDN  KEY MUTE   KEY VOLUP  NON
         BLU BT3    BLU BT2    BLU BT1    BTL        NON        NON        KEY PREV   KEY C_PP   KEY NEXT   NON
-                                         NON        NON        NON        NON
+                                         KEY BKSP   NON        NON        NON
       >;
     }; 
     gaming_layer {
