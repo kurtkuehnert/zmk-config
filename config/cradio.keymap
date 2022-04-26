@@ -468,6 +468,15 @@
       >;
     }; 
 
+    taipo_layer {
+      bindings = <
+        NON        NON        NON        NON        NON        &to L_DEF  NON        NON        NON        NON 
+        KEY R      KEY S      KEY N      KEY I      NON        NON        KEY I      KEY N      KEY S      KEY R
+        KEY A      KEY O      KEY T      KEY E      NON        NON        KEY E      KEY T      KEY O      KEY A
+                                         KEY SPC    KEY BSPC   KEY BSPC   KEY SPC
+      >;
+    };
+
     gaming_layer {
 	    bindings = <
         KEY N1     KEY N2     KEY N3     KEY N4     KEY ESC    NON        NON        NON        NON        &to L_DEF
@@ -475,15 +484,6 @@
         KEY P      KEY V      KEY G      KEY D      KEY B	     NON        NON        NON        NON        NON
                                          KEY TAB    KEY SPC    NON        NON
       >;
-    };
-
-    taipo_layer {
-      bindings = <
-        NON        NON        NON        NON        NON        NON        &to L_DEF  NON        NON        NON
-        KEY R      KEY S      KEY N      KEY I      NON        NON        KEY I      KEY N      KEY S      KEY R
-        KEY A      KEY O      KEY T      KEY E      NON        NON        KEY E      KEY T      KEY O      KEY A
-                                         KEY SPC    KEY BSPC   KEY BSPC   KEY SPC
-      >;
-    };
+    };    
   };
 };
