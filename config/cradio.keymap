@@ -85,8 +85,8 @@
 #define BLM 22
 #define BLR 21
 #define BLP 20
-#define LOT 30
-#define LIT 31
+#define LOT 31
+#define LIT 30
 #define TRI 16
 #define TRM 17
 #define TRR 18
@@ -95,8 +95,8 @@
 #define BRM 27
 #define BRR 28
 #define BRP 29
-#define ROT 33
-#define RIT 32
+#define ROT 32
+#define RIT 33
 
 #define COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
