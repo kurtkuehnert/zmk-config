@@ -345,7 +345,7 @@
         KEY N7     KEY N7     KEY N8     KEY N9     NON        NON        KEY BSLH   KEY PRCNT  KEY CARET  NON
         RMM N0     RMA N4     RMC N5     RMS N6     KEY PLUS   KEY ASTRK  RMS LPAR   RMC RPAR   RMA LBRC   RMM RBRC
 	    KEY EQUAL  KEY N1     KEY N2     KEY N3     KEY MINUS  KEY SLASH  KEY LBKT   KEY RBKT   KEY LT     KEY GT
-                                         TRN        TRN        KEY BKSP   KEY COLON
+                                         TRN        TRN        KEY DEL    KEY COLON
   	  >;
 	};
 	right_layer {
@@ -353,7 +353,7 @@
         KEY TILDE  KEY TILDE  KEY AT     KEY HASH   NON        NON        KEY HOME   KEY UP     KEY END    NON
         RMM UNDER  RMA GRAVE  RMC APOS   RMS DQT    KEY EXCL   KEY PG_UP  KEY LEFT   KEY DOWN   KEY RIGHT  NON
 	    NON        KEY DLLR   KEY AMPS   KEY PIPE   KEY QMARK  KEY PG_DN  NON        NON        NON        NON
-            				             KEY SEMI   KEY DEL    TRN        TRN
+            				             KEY SEMI   KEY BKSP   TRN        TRN
   	  >;
 	};
 	third_layer {
