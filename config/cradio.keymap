@@ -334,7 +334,7 @@
 
     default_layer {
 	  bindings = <
-        KEY B      KEY B      UML F      ESZ P      &to L_ALP1 &to L_TAI  KEY L      KEY U      KEY Y      &to L_GAM
+        KEY B      KEY B      UML F      ESZ P      NON        &to L_TAI  KEY L      KEY U      KEY Y      &to L_GAM
         RMM A      RMA R      RMC S      RMS T      FTA G      FRT M      RMS N      RMC E      RMA I      RMM O
         UDO Z      KUT W      CPY C      PST D      SAV V	   FES K      KEY H      KEY J      KEY X      KEY Q
                                          LM1 CMMA   KEY SPC    LM3        LM2 DOT
