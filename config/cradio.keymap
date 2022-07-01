@@ -345,7 +345,7 @@
         KEY N7     KEY N7     KEY N8     KEY N9     NON        NON        KEY BSLH   KEY PRCNT  KEY CARET  NON
         RMM N0     RMA N4     RMC N5     RMS N6     KEY PLUS   KEY ASTRK  RMS LPAR   RMC RPAR   RMA LBRC   RMM RBRC
 	    KEY EQUAL  KEY N1     KEY N2     KEY N3     KEY MINUS  KEY SLASH  KEY LBKT   KEY RBKT   KEY LT     KEY GT
-                                         TRN        TRN        KEY DEL    KEY COLON
+                                         NON        NON        KEY DEL    KEY COLON
   	  >;
 	};
 	right_layer {
@@ -353,15 +353,15 @@
         KEY TILDE  KEY TILDE  KEY AT     KEY HASH   NON        NON        KEY HOME   KEY UP     KEY END    NON
         RMM UNDER  RMA GRAVE  RMC APOS   RMS DQT    KEY EXCL   KEY PG_UP  KEY LEFT   KEY DOWN   KEY RIGHT  NON
 	    NON        KEY DLLR   KEY AMPS   KEY PIPE   KEY QMARK  KEY PG_DN  NON        NON        NON        NON
-            				             KEY SEMI   KEY BKSP   TRN        TRN
+            				             KEY SEMI   KEY BKSP   NON        NON
   	  >;
 	};
 	third_layer {
   	  bindings = <
-        KEY F7     KEY F7     KEY F8     KEY F9     NON        NON        KEY VOLUP  KEY MUTE   KEY VOLDN  NON
-        RMM F12    RMA F4     RMC F5     RMS F6     KEY F10    BLU BTCLR  RMS PREV   RMC C_PP   RMA NEXT   RMM PSCRN
-        NON        KEY F1     KEY F2     KEY F3     KEY F11    KEY C_PWR  BLU BT1    BLU BT2    BLU BT3    BLU BT4
-            				             TRN        TRN        TRN        TRN
+        KEY F7     KEY F7     KEY F8     KEY F9     NON        NON        KEY VOLDN  KEY MUTE  KEY VOLUP   NON
+        RMM F12    RMA F4     RMC F5     RMS F6     KEY F10    BLU BTCLR  RMS PREV   RMC C_PP   RMA NEXT   RMM 0
+        NON        KEY F1     KEY F2     KEY F3     KEY F11    NON        BLU BT1    BLU BT2    BLU BT3    BLU BT4
+            				             NON        NON        NON        NON
   	  >;
     };
 
@@ -376,7 +376,7 @@
 
     gaming_layer {
 	    bindings = <
-        KEY N1     KEY N2     KEY N3     KEY N4     KEY T      NON        NON        NON        NON        &to L_DEF
+        KEY N1     KEY N2     KEY N3     KEY N4     KEY T      &to L_DEF  NON        NON        NON        NON        
         KEY Q      KEY W      KEY E      KEY R      KEY F      NON        NON        NON        NON        NON
         KEY LC(N6) KEY V      KEY G      KEY D      KEY B	   NON        NON        NON        NON        NON
                                          KEY TAB    KEY SPC    NON        NON
