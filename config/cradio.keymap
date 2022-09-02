@@ -84,13 +84,17 @@
 #define RTT 32
 #define RBT 33
 
+#define MERGE_(a,b)  a##b
+#define LABEL_(a) MERGE_(combo_, a)
+#define UNIQUE_COMBO LABEL_(__LINE__)
+
 #define COMBO(NAME, BINDINGS, KEYPOS) \
-  combo_##NAME { \
-    layers = <L_TAI>; \
-    timeout-ms = <50>; \
-    bindings = <BINDINGS>; \
-    key-positions = <KEYPOS>; \
-  };
+	UNIQUE_COMBO { 					  \
+    	layers = <L_TAI>; 			  \
+    	timeout-ms = <50>; 			  \
+    	bindings = <BINDINGS>; 		  \
+    	key-positions = <KEYPOS>;     \
+	};
 
 / {
   combos {
