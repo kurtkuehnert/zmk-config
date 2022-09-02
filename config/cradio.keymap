@@ -147,7 +147,16 @@
 		COMBO(141,  &kp LS(M),  BLI LOT TLP)
 		COMBO(142,  &kp LS(M),  BRI ROT TRP)
 		   
-		COMBO(200,  &kp R,      TLP)
+		COMBO(300,  &kp R,      TLP)
+		COMBO(301,  &kp A,      BLP)
+		COMBO(302,  &kp S,      TLR)
+		COMBO(303,  &kp O,      BLR)
+		COMBO(304,  &kp N,      TLM)
+		COMBO(305,  &kp T,      BLM)
+		COMBO(306,  &kp I,      TLI)
+		COMBO(307,  &kp E,      BLI)
+		COMBO(308,  &kp SPC,    LOT)
+		COMBO(309,  &kp BSPC,   LIT)
 
 		COMBO( 33,  &kp H,      BLI BLM)
 		COMBO( 34,  &kp H,      BRI BRM)
@@ -294,13 +303,13 @@
 		COMBO(204,  &kp DEL,    TRI TRM TRR ROT)
   
 		COMBO(181,  &kp RIGHT,  BLI TLM TLR)
-		COMBO(182,  &kp RIGHT,  BRI TRM TRR)
+		COMBO(182,  &kp RIGHT,  TRI TRM BRR)
 		COMBO(183,  &kp UP,     BLI TLM BLR)
 		COMBO(184,  &kp UP,     BRI TRM BRR)
 		COMBO(185,  &kp DOWN,   TLI BLM TLR)
 		COMBO(186,  &kp DOWN,   TRI BRM TRR)
 		COMBO(187,  &kp LEFT,   TLI TLM BLR)
-		COMBO(188,  &kp LEFT,   TRI TRM BRR)
+		COMBO(188,  &kp LEFT,   BRI TRM TRR)
 
 		COMBO(191,  &kp HOME,   BLR TLR LIT)
 		COMBO(192,  &kp HOME,   BRR TRR RIT)
@@ -378,9 +387,9 @@
     taipo_layer {
       bindings = <
         NON        NON        NON        NON        NON        &to L_DEF  NON        NON        NON        NON 
-        NON        KEY S      KEY N      KEY I      NON        NON        KEY I      KEY N      KEY S      KEY R
-        KEY A      KEY O      KEY T      KEY E      NON        NON        KEY E      KEY T      KEY O      KEY A
-                                         KEY BSPC   KEY SPC    KEY SPC   KEY BSPC
+        NON        NON        NON        NON        NON        NON        KEY I      KEY N      KEY S      KEY R
+        NON        NON        NON        NON        NON        NON        KEY E      KEY T      KEY O      KEY A
+                                         NON        NON        KEY SPC    KEY BSPC
       >;
     };
 
