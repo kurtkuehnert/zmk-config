@@ -1,0 +1,178 @@
+units:
+  demo_size: 0.05
+
+  bind_size: 2
+  switch_size: 14.5
+  xiao_x: 17.5
+  xiao_y: 20
+
+  outer_stagger: cy * 2/3
+  inner_stagger: cy * 1/3
+  thumb_stagger: cy * 4/3
+  thumb_rotate: 105
+
+points: 
+  zones:
+    keys:
+      key:
+        bind: bind_size
+        width: demo_size
+        height: demo_size
+        tags:
+          keys: true
+        footprints:
+          choc_hotswap:
+            type: choc
+            nets:
+              to: =key_net
+              from: GND
+            params:
+              reverse: true
+              hotswap: true
+              keycaps: true
+      rows:
+        bottom.padding: cy
+        top.padding: cy
+      columns:
+        pinky:
+          spread: cx
+          rows:
+            bottom.key_net: P0
+            top.key_net: P0
+        ring:
+          spread: cx
+          stagger: outer_stagger
+          rows:
+            bottom.key_net: P0
+            top.key_net: P0
+        middle:
+          spread: cx
+          stagger: inner_stagger
+          rows:
+            bottom.key_net: P0
+            top.key_net: P0
+        index:
+          spread: cx
+          stagger: -inner_stagger
+          rows:
+            bottom.key_net: P0
+            top.key_net: P0
+        xiao:
+          spread: cx + 0.25
+          stagger: -outer_stagger + cy - xiao_y
+          key:
+            name: xiao
+            tags: 
+              keys: false
+              xiao: true
+            footprints:
+            - type: xiao
+        thumb:
+          spread: 0
+          stagger: -thumb_stagger
+          rotate: -thumb_rotate
+          rows:
+            top.bind: 0
+            bottom.key_net: P0
+            top.key_net: P0
+            
+outlines:
+  exports:
+    _key_outline:
+      - type: keys
+        side: both
+        size: [cx, cy]
+        tags: [keys]
+    _xiao_outline:
+      - type: keys
+        side: both
+        size: [xiao_x, xiao_y + 2.5]
+        tags: [xiao]  
+    _top_circle:
+      - operation: add
+        type: circle
+        anchor:
+          ref: [keys_pinky_top, xiao]
+          shift: [0, -41]
+        radius: 70
+      - operation: intersect
+        type: rectangle
+        anchor:
+          ref: [keys_pinky_top]
+          shift: [-cx/2 - bind_size, +cy/2]
+        size: 5 * cx + 2 * bind_size
+    _bottom_circle:
+      - operation: add
+        type: circle
+        anchor:
+          ref: [keys_pinky_bottom]
+          shift: [97, 157]
+        radius: 200
+      - operation: intersect
+        type: rectangle
+        anchor:
+          ref: [keys_pinky_bottom]
+          rotate: 180
+          shift: [96.9, 0]
+        size: [108, 100]
+    _right_circle:
+      - operation: add
+        type: rectangle
+        anchor:
+          ref: [xiao]
+          shift: [0, -36]
+        size: [50, 50]
+      - operation: add
+        type: rectangle
+        anchor:
+          ref: [xiao]
+          shift: [23.7, -57.0]
+        size: [50, 50]
+      - operation: intersect
+        type: circle
+        anchor:
+          ref: [xiao]
+          shift: [-49.8, -40]
+        radius: 80
+    _middle_rectangle:
+      - operation: add
+        type: rectangle
+        anchor:
+          ref: keys_pinky_top
+          shift: [-cx/2 - bind_size, -30 + cy / 2]
+        size: [85, 30]
+    _panel:
+      - _top_circle
+      - _bottom_circle
+      - _right_circle
+      - _middle_rectangle     
+    panel:
+      - name: _panel
+        fillet: 4
+    _switches:
+      - type: keys
+        bound: false
+        side: both
+        size: switch_size
+        tags: [keys]
+    _keycaps:
+      - type: keys
+        bound: false
+        side: both
+        size: [cx * 0.99, cy * 0.99]
+        tags: [keys]
+        corner: 2
+    _xiao:
+      - type: keys
+        bound: false
+        side: both
+        size: [xiao_x, xiao_y]
+        tags: [xiao]
+    demo_switches:
+      - panel
+      - ^_switches
+      - ^_xiao
+    demo_keycaps:
+      - panel
+      - ^_keycaps
+      - ^_xiao
