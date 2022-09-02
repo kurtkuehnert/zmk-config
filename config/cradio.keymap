@@ -88,253 +88,272 @@
 #define LABEL_(a) MERGE_(combo_, a)
 #define UNIQUE_COMBO LABEL_(__LINE__)
 
-#define COMBO(NAME, BINDINGS, KEYPOS) \
-	UNIQUE_COMBO { 					  \
-    	layers = <L_TAI>; 			  \
-    	timeout-ms = <50>; 			  \
-    	bindings = <BINDINGS>; 		  \
-    	key-positions = <KEYPOS>;     \
-	};
+#define BOTH   0
+#define TOP    1
+#define LEFT   1
+#define RIGHT  2
+#define BOTTOM 2
+#define NONE   3
+
+#define COMBO(KEYPOS, BINDINGS)    \
+    UNIQUE_COMBO {                 \
+        layers = <L_TAI>;          \
+        timeout-ms = <50>;         \
+        key-positions = <KEYPOS>;  \
+        bindings = <BINDINGS>;     \
+    };
 
 / {
   combos {
     compatible = "zmk,combos";
-		COMBO(301,  &kp A,      				LBP	)
-		COMBO(301,  &kp A,      				RBP	)
-		COMBO( 39,  &kp B,       			LTR LTP	)
-		COMBO( 40,  &kp B,       			RTR RTP	)
-		COMBO( 81,  &kp C,      	LBI 	LBR	   	)
-		COMBO( 82,  &kp C,      	RBI 	RBR	   	)
-		COMBO( 61,  &kp D,      	LBI 		LBP	)
-		COMBO( 62,  &kp D,      	RBI 		RBP	)
-		COMBO(307,  &kp E,      	LBI			   	)
-		COMBO(307,  &kp E,      	RBI			   	)
-		COMBO( 85,  &kp F,      	LTI 	LTR    	)
-		COMBO( 86,  &kp F,      	RTI 	RTR    	)
-		COMBO( 57,  &kp G,      	LTI 		LTP	)
-		COMBO( 58,  &kp G,      	RTI 		RTP	)
-		COMBO( 33,  &kp H,      	LBI LBM			)
-		COMBO( 34,  &kp H,      	RBI RBM			)
-		COMBO(306,  &kp I,      	LTI			    )
-		COMBO(306,  &kp I,      	RTI			    )
-		COMBO(111,  &kp J,      		LTM		LBP )
-		COMBO(112,  &kp J,      		RTM		RBP )
-		COMBO(109,  &kp K,      	LTI 	LBR 	)
-		COMBO(110,  &kp K,      	RTI 	RBR 	)
-		COMBO( 35,  &kp L,     				LBR LBP )
-		COMBO( 36,  &kp L,     				RBR RBP )
-		COMBO(133,  &kp M,      	LBI 		LTP )
-		COMBO(134,  &kp M,      	RBI 		RTP )
-		COMBO(304,  &kp N,      				LTM )
-		COMBO(304,  &kp N,      				RTM )
-		COMBO(303,  &kp O,      			LBR		)
-		COMBO(303,  &kp O,      			RBR		)
-		COMBO( 63,  &kp P,      		LTM LTR		)
-		COMBO( 64,  &kp P,      		RTM RTR		)
-		COMBO( 83,  &kp Q,      		LBM LBP		)
-		COMBO( 84,  &kp Q,      		RBM RBP		)
-		COMBO(300,  &kp R,      				LTP )
-		COMBO(300,  &kp R,      				RTP )
-		COMBO(302,  &kp S,      			LTR		)
-		COMBO(302,  &kp S,      			RTR		)
-		COMBO(305,  &kp T,      		LBM 		)
-		COMBO(305,  &kp T,      		RBM 		)
-		COMBO( 59,  &kp U,      		LBM LBR		)
-		COMBO( 60,  &kp U,      		RBM RBR		)
-		COMBO(105,  &kp V,      	LBI 	LTR 	)
-		COMBO(106,  &kp V,      	RBI 	RTR 	)
-		COMBO(131,  &kp W,      	LTI			LBP )
-		COMBO(132,  &kp W,      	RTI			RBP )
-		COMBO(107,  &kp X,      		LBM 	LTP )
-		COMBO(108,  &kp X,      		RBM 	RTP )
-		COMBO( 37,  &kp Y,      	LTI LTM 		)
-		COMBO( 38,  &kp Y,      	RTI RTM 		)
-		COMBO( 87,  &kp Z,      		LTM 	LTP )
-		COMBO( 88,  &kp Z,      		RTM 	RTP )
+        COMBO(                LBP, &kp A     )
+        COMBO(                RBP, &kp A     )
+        COMBO(            LTR LTP, &kp B     )
+        COMBO(            RTR RTP, &kp B     )
+        COMBO(    LBI     LBR    , &kp C     )
+        COMBO(    RBI     RBR    , &kp C     )
+        COMBO(    LBI         LBP, &kp D     )
+        COMBO(    RBI         RBP, &kp D     )
+        COMBO(    LBI            , &kp E     )
+        COMBO(    RBI            , &kp E     )
+        COMBO(    LTI     LTR    , &kp F     )
+        COMBO(    RTI     RTR    , &kp F     )
+        COMBO(    LTI         LTP, &kp G     )
+        COMBO(    RTI         RTP, &kp G     )
+        COMBO(    LBI LBM        , &kp H     )
+        COMBO(    RBI RBM        , &kp H     )
+        COMBO(    LTI            , &kp I     )
+        COMBO(    RTI            , &kp I     )
+        COMBO(        LTM     LBP, &kp J     )
+        COMBO(        RTM     RBP, &kp J     )
+        COMBO(    LTI     LBR    , &kp K     )
+        COMBO(    RTI     RBR    , &kp K     )
+        COMBO(            LBR LBP, &kp L     )
+        COMBO(            RBR RBP, &kp L     )
+        COMBO(    LBI         LTP, &kp M     )
+        COMBO(    RBI         RTP, &kp M     )
+        COMBO(        LTM        , &kp N     )
+        COMBO(        RTM        , &kp N     )
+        COMBO(            LBR    , &kp O     )
+        COMBO(            RBR    , &kp O     )
+        COMBO(        LTM LTR    , &kp P     )
+        COMBO(        RTM RTR    , &kp P     )
+        COMBO(        LBM     LBP, &kp Q     )
+        COMBO(        RBM     RBP, &kp Q     )
+        COMBO(                LTP, &kp R     )
+        COMBO(                RTP, &kp R     )
+        COMBO(            LTR    , &kp S     )
+        COMBO(            RTR    , &kp S     )
+        COMBO(        LBM        , &kp T     )
+        COMBO(        RBM        , &kp T     )
+        COMBO(        LBM LBR    , &kp U     )
+        COMBO(        RBM RBR    , &kp U     )
+        COMBO(    LBI     LTR    , &kp V     )
+        COMBO(    RBI     RTR    , &kp V     )
+        COMBO(    LTI         LBP, &kp W     )
+        COMBO(    RTI         RBP, &kp W     )
+        COMBO(        LBM     LTP, &kp X     )
+        COMBO(        RBM     RTP, &kp X     )
+        COMBO(    LTI LTM        , &kp Y     )
+        COMBO(    RTI RTM        , &kp Y     )
+        COMBO(        LTM     LTP, &kp Z     )
+        COMBO(        RTM     RTP, &kp Z     )
 
-		COMBO(  1,  &kp LS(E),  LBI LTT)
-		COMBO(  2,  &kp LS(E),  RBI RTT)
-		COMBO(  3,  &kp LS(T),  LBM LTT)
-		COMBO(  4,  &kp LS(T),  RBM RTT)
-		COMBO(  5,  &kp LS(O),  LBR LTT)
-		COMBO(  6,  &kp LS(O),  RBR RTT)
-		COMBO(  7,  &kp LS(A),  LBP LTT)
-		COMBO(  8,  &kp LS(A),  RBP RTT)
-		COMBO( 17,  &kp LS(I),  LTT LTI)
-		COMBO( 18,  &kp LS(I),  RTT RTI)
-		COMBO( 19,  &kp LS(N),  LTT LTM)
-		COMBO( 20,  &kp LS(N),  RTT RTM)
-		COMBO( 21,  &kp LS(S),  LTT LTR)
-		COMBO( 22,  &kp LS(S),  RTT RTR)
-		COMBO( 23,  &kp LS(R),  LTT LTP)
-		COMBO( 24,  &kp LS(R),  RTT RTP)
-		COMBO( 41,  &kp LS(H),  LBI LBM LTT)
-		COMBO( 42,  &kp LS(H),  RBI RBM RTT)
-		COMBO( 43,  &kp LS(L),  LBP LBR LTT)
-		COMBO( 44,  &kp LS(L),  RBP RBR RTT)
-		COMBO( 45,  &kp LS(Y),  LTT LTI LTM)
-		COMBO( 46,  &kp LS(Y),  RTT RTI RTM)
-		COMBO( 47,  &kp LS(B),  LTT LTP LTR)
-		COMBO( 48,  &kp LS(B),  RTT RTP RTR)
-		COMBO( 65,  &kp LS(G),  LTT LTI LTP)
-		COMBO( 66,  &kp LS(G),  RTT RTI RTP)
-		COMBO( 67,  &kp LS(U),  LBM LBR LTT)
-		COMBO( 68,  &kp LS(U),  RBM RBR RTT)
-		COMBO( 69,  &kp LS(D),  LBI LBP LTT)
-		COMBO( 70,  &kp LS(D),  RBI RBP RTT)
-		COMBO( 71,  &kp LS(P),  LTT LTM LTR)
-		COMBO( 72,  &kp LS(P),  RTT RTM RTR)
-		COMBO( 89,  &kp LS(C),  LBI LBR LTT)
-		COMBO( 90,  &kp LS(C),  RBI RBR RTT)
-		COMBO( 91,  &kp LS(Q),  LBM LBP LTT)
-		COMBO( 92,  &kp LS(Q),  RBM RBP RTT)
-		COMBO( 93,  &kp LS(F),  LTT LTI LTR)
-		COMBO( 94,  &kp LS(F),  RTT RTI RTR)
-		COMBO( 95,  &kp LS(Z),  LTT LTM LTP)
-		COMBO( 96,  &kp LS(Z),  RTT RTM RTP)
-		COMBO(113,  &kp LS(V),  LBI LTT LTR)
-		COMBO(114,  &kp LS(V),  RBI RTT RTR)
-		COMBO(115,  &kp LS(X),  LBM LTT LTP)
-		COMBO(116,  &kp LS(X),  RBM RTT RTP)
-		COMBO(117,  &kp LS(K),  LBR LTT LTI)
-		COMBO(118,  &kp LS(K),  RBR RTT RTI)
-		COMBO(119,  &kp LS(J),  LBP LTT LTM)
-		COMBO(120,  &kp LS(J),  RBP RTT RTM)
-		COMBO(139,  &kp LS(W),  LBP LTT LTI)
-		COMBO(140,  &kp LS(W),  RBP RTT RTI)
-		COMBO(141,  &kp LS(M),  LBI LTT LTP)
-		COMBO(142,  &kp LS(M),  RBI RTT RTP)
-		   
+        COMBO(LTT             LBP, &kp LS(A) )
+        COMBO(RTT             RBP, &kp LS(A) )
+        COMBO(LTT         LTR LTP, &kp LS(B) )
+        COMBO(RTT         RTR RTP, &kp LS(B) )
+        COMBO(LTT LBI     LBR    , &kp LS(C) )
+        COMBO(RTT RBI     RBR    , &kp LS(C) )
+        COMBO(LTT LBI         LBP, &kp LS(D) )
+        COMBO(RTT RBI         RBP, &kp LS(D) )
+        COMBO(LTT LBI            , &kp LS(E) )
+        COMBO(RTT RBI            , &kp LS(E) )
+        COMBO(LTT LTI     LTR    , &kp LS(F) )
+        COMBO(RTT RTI     RTR    , &kp LS(F) )
+        COMBO(LTT LTI         LTP, &kp LS(G) )
+        COMBO(RTT RTI         RTP, &kp LS(G) )
+        COMBO(LTT LBI LBM        , &kp LS(H) )
+        COMBO(RTT RBI RBM        , &kp LS(H) )
+        COMBO(LTT LTI            , &kp LS(I) )
+        COMBO(RTT RTI            , &kp LS(I) )
+        COMBO(LTT     LTM     LBP, &kp LS(J) )
+        COMBO(RTT     RTM     RBP, &kp LS(J) )
+        COMBO(LTT LTI     LBR    , &kp LS(K) )
+        COMBO(RTT RTI     RBR    , &kp LS(K) )
+        COMBO(LTT         LBR LBP, &kp LS(L) )
+        COMBO(RTT         RBR RBP, &kp LS(L) )
+        COMBO(LTT LBI         LTP, &kp LS(M) )
+        COMBO(RTT RBI         RTP, &kp LS(M) )
+        COMBO(LTT     LTM        , &kp LS(N) )
+        COMBO(RTT     RTM        , &kp LS(N) )
+        COMBO(LTT         LBR    , &kp LS(O) )
+        COMBO(RTT         RBR    , &kp LS(O) )
+        COMBO(LTT     LTM LTR    , &kp LS(P) )
+        COMBO(RTT     RTM RTR    , &kp LS(P) )
+        COMBO(LTT     LBM     LBP, &kp LS(Q) )
+        COMBO(RTT     RBM     RBP, &kp LS(Q) )
+        COMBO(LTT             LTP, &kp LS(R) )
+        COMBO(RTT             RTP, &kp LS(R) )
+        COMBO(LTT         LTR    , &kp LS(S) )
+        COMBO(RTT         RTR    , &kp LS(S) )
+        COMBO(LTT     LBM        , &kp LS(T) )
+        COMBO(RTT     RBM        , &kp LS(T) )
+        COMBO(LTT     LBM LBR    , &kp LS(U) )
+        COMBO(RTT     RBM RBR    , &kp LS(U) )
+        COMBO(LTT LBI     LTR    , &kp LS(V) )
+        COMBO(RTT RBI     RTR    , &kp LS(V) )
+        COMBO(LTT LTI         LBP, &kp LS(W) )
+        COMBO(RTT RTI         RBP, &kp LS(W) )
+        COMBO(LTT     LBM     LTP, &kp LS(X) )
+        COMBO(RTT     RBM     RTP, &kp LS(X) )
+        COMBO(LTT LTI LTM        , &kp LS(Y) )
+        COMBO(RTT RTI RTM        , &kp LS(Y) )
+        COMBO(LTT     LTM     LTP, &kp LS(Z) )
+        COMBO(RTT     RTM     RTP, &kp LS(Z) )
 
-		COMBO(308,  &kp SPC,    LTT)
-		COMBO(308,  &kp SPC,    RTT)
-		COMBO(309,  &kp BSPC,   LBT)
-		COMBO(309,  &kp BSPC,   RBT)
-   
+        COMBO(LBT                , &kp BSPC  )
+        COMBO(RBT                , &kp BSPC  )
+        COMBO(LTT                , &kp SPC   )
+        COMBO(RTT                , &kp SPC   )
 
+        COMBO(LBT LBI LBM        , &kp N0    )
+        COMBO(RBT RBI RBM        , &kp N0    )
+        COMBO(LBT LBI     LBR    , &kp N1    )
+        COMBO(RBT RBI     RBR    , &kp N1    )
+        COMBO(LBT     LBM LBR    , &kp N2    )
+        COMBO(RBT     RBM RBR    , &kp N2    )
+        COMBO(LBT     LBM     LBP, &kp N3    )
+        COMBO(RBT     RBM     RBP, &kp N3    )
+        COMBO(LBT         LBR LBP, &kp N4    )
+        COMBO(RBT         RBR RBP, &kp N4    )
+        COMBO(LBT LTI LTM        , &kp N5    )
+        COMBO(RBT RTI RTM        , &kp N5    )
+        COMBO(LBT LTI     LTR    , &kp N6    )
+        COMBO(RBT RTI     RTR    , &kp N6    )
+        COMBO(LBT     LTM LTR    , &kp N7    )
+        COMBO(RBT     RTM RTR    , &kp N7    )
+        COMBO(LBT     LTM     LTP, &kp N8    )
+        COMBO(RBT     RTM     RTP, &kp N8    )
+        COMBO(LBT         LTR LTP, &kp N9    )
+        COMBO(RBT         RTR RTP, &kp N9    )
 
-		COMBO( 49,  &kp N0,     LBI LBM LBT)
-		COMBO( 50,  &kp N0,     RBI RBM RBT)
-		COMBO( 97,  &kp N1,     LBI LBR LBT)
-		COMBO( 98,  &kp N1,     RBI RBR RBT)
-		COMBO( 75,  &kp N2,     LBM LBR LBT)
-		COMBO( 76,  &kp N2,     RBM RBR RBT)
-		COMBO( 99,  &kp N3,     LBM LBP LBT)
-		COMBO(100,  &kp N3,     RBM RBP RBT)
-		COMBO( 51,  &kp N4,     LBP LBR LBT)
-		COMBO( 52,  &kp N4,     RBP RBR RBT)
-		COMBO( 53,  &kp N5,     LBT LTI LTM)
-		COMBO( 54,  &kp N5,     RBT RTI RTM)
-		COMBO(101,  &kp N6,     LBT LTI LTR)
-		COMBO(102,  &kp N6,     RBT RTI RTR)
-		COMBO( 79,  &kp N7,     LBT LTM LTR)
-		COMBO( 80,  &kp N7,     RBT RTM RTR)
-		COMBO(103,  &kp N8,     LBT LTM LTP)
-		COMBO(104,  &kp N8,     RBT RTM RTP)
-		COMBO( 55,  &kp N9,     LBT LTP LTR)
-		COMBO( 56,  &kp N9,     RBT RTP RTR)
+        COMBO(LBT LBI            , &kp LPAR  )
+        COMBO(RBT RBI            , &kp LPAR  )
+        COMBO(LBT LTI            , &kp RPAR  )
+        COMBO(RBT RTI            , &kp RPAR  )
+        COMBO(LBT     LBM        , &kp LBKT  )
+        COMBO(RBT     RBM        , &kp LBKT  )
+        COMBO(LBT     LTM        , &kp RBKT  )
+        COMBO(RBT     RTM        , &kp RBKT  )
+        COMBO(LBT         LBR    , &kp LBRC  )
+        COMBO(RBT         RBR    , &kp LBRC  )
+        COMBO(LBT         LTR    , &kp RBRC  )
+        COMBO(RBT         RTR    , &kp RBRC  )
+        COMBO(LBT             LBP, &kp LT    )
+        COMBO(RBT             RBP, &kp LT    )
+        COMBO(LBT             LTP, &kp GT    )
+        COMBO(RBT             RTP, &kp GT    )
 
-		COMBO(  9,  &kp LPAR,   LBI LBT)
-		COMBO( 10,  &kp LPAR,   RBI RBT)
-		COMBO( 25,  &kp RPAR,   LBT LTI)
-		COMBO( 26,  &kp RPAR,   RBT RTI)
-		COMBO( 11,  &kp LBKT,   LBM LBT)
-		COMBO( 12,  &kp LBKT,   RBM RBT)
-		COMBO( 27,  &kp RBKT,   LBT LTM)
-		COMBO( 28,  &kp RBKT,   RBT RTM)
-		COMBO( 13,  &kp LBRC,   LBR LBT)
-		COMBO( 14,  &kp LBRC,   RBR RBT)
-		COMBO( 29,  &kp RBRC,   LBT LTR)
-		COMBO( 30,  &kp RBRC,   RBT RTR)
-		COMBO( 15,  &kp LT,     LBP LBT)
-		COMBO( 16,  &kp LT,     RBP RBT)
-		COMBO( 31,  &kp GT,     LBT LTP)
-		COMBO( 32,  &kp GT,     RBT RTP)
+        COMBO(    LTI LBM        , &kp QMARK )
+        COMBO(    RTI RBM        , &kp QMARK )
+        COMBO(    LBI LTM        , &kp COMMA )
+        COMBO(    RBI RTM        , &kp COMMA )
+        COMBO(        LTM LBR    , &kp MINUS )
+        COMBO(        RTM RBR    , &kp MINUS )
+        COMBO(        LBM LTR    , &kp FSLH  )
+        COMBO(        RBM RTR    , &kp FSLH  )
+        COMBO(            LTR LBP, &kp SQT   )
+        COMBO(            RTR RBP, &kp SQT   )
+        COMBO(            LBR LTP, &kp SEMI  )
+        COMBO(            RBR RTP, &kp SEMI  )
+        COMBO(LTT LTI LBM        , &kp EXCL  )
+        COMBO(RTT RTI RBM        , &kp EXCL  )
+        COMBO(LTT LBI LTM        , &kp DOT   )
+        COMBO(RTT RBI RTM        , &kp DOT   )
+        COMBO(LTT     LTM LBR    , &kp UNDER )
+        COMBO(RTT     RTM RBR    , &kp UNDER )
+        COMBO(LTT     LBM LTR    , &kp BSLH  )
+        COMBO(RTT     RBM RTR    , &kp BSLH  )
+        COMBO(LTT         LTR LBP, &kp DQT   )
+        COMBO(RTT         RTR RBP, &kp DQT   )
+        COMBO(LTT         LBR LTP, &kp COLON )
+        COMBO(RTT         RBR RTP, &kp COLON )
+        COMBO(LBT LTI LBI        , &kp LA(U) )
+        COMBO(RBT RTI RBI        , &kp LA(U) )
+        COMBO(LBT LBI LTM        , &kp TILDE )
+        COMBO(RBT RBI RTM        , &kp TILDE )
+        COMBO(LBT LBI     LTR    , &kp STAR  )
+        COMBO(RBT RBI     RTR    , &kp STAR  )
+        COMBO(LBT LTI     LBR    , &kp PLUS  )
+        COMBO(RBT RTI     RBR    , &kp PLUS  )
+        COMBO(LBT LTI         LBP, &kp AMPS  )
+        COMBO(RBT RTI         RBP, &kp AMPS  )
+        COMBO(LBT LBI         LTP, &kp DLLR  )
+        COMBO(RBT RBI         RTP, &kp DLLR  )
+        COMBO(LBT LTI         LTP, &kp HASH  )
+        COMBO(RBT RTI         RTP, &kp HASH  )
+        COMBO(LBT LBI         LBP, &kp AT    )
+        COMBO(RBT RBI         RBP, &kp AT    )
+        COMBO(LBT     LTM LBR    , &kp PRCNT )
+        COMBO(RBT     RTM RBR    , &kp PRCNT )
+        COMBO(LBT     LBM LTR    , &kp PIPE  )
+        COMBO(RBT     RBM RTR    , &kp PIPE  )
+        COMBO(LBT     LBM     LTP, &kp CARET )
+        COMBO(RBT     RBM     RTP, &kp CARET )
+        COMBO(LBT     LTM     LBP, &kp EQUAL )
+        COMBO(RBT     RTM     RBP, &kp EQUAL )
+        COMBO(LBT         LTR LBP, &kp GRAVE )
+        COMBO(RBT         RTR RBP, &kp GRAVE )
+        COMBO(LBT         LBR LTP, &kp LA(S) )
+        COMBO(RBT         RBR RTP, &kp LA(S) )
+        
+        COMBO(    LBI LBM LBR    , &kp ENTER )
+        COMBO(    RBI RBM RBR    , &kp ENTER )
+        COMBO(    LTI LTM LTR    , &kp TAB   )
+        COMBO(    RTI RTM RTR    , &kp TAB   )
+        COMBO(LTT LBI LBM LBR    , &kp ESC   )
+        COMBO(RTT RBI RBM RBR    , &kp ESC   )
+        COMBO(LTT LTI LTM LTR    , &kp DEL   )
+        COMBO(RTT RTI RTM RTR    , &kp DEL   )
+        COMBO(LTT LBI LBM LBR    , &kp C_PP  )
+        COMBO(RTT RBI RBM RBR    , &kp C_PP  )
+        COMBO(LTT LTI LTM LTR    , &kp MUTE  )
+        COMBO(RTT RTI RTM RTR    , &kp MUTE  )
 
+        COMBO(    LTI LTM LBR    , &kp LEFT  )
+        COMBO(    RBI RTM RTR    , &kp LEFT  )
+        COMBO(    LBI LTM LTR    , &kp RIGHT )
+        COMBO(    RTI RTM RBR    , &kp RIGHT )
+        COMBO(    LBI LTM LBR    , &kp UP    )
+        COMBO(    RBI RTM RBR    , &kp UP    )
+        COMBO(    LTI LBM LTR    , &kp DOWN  )
+        COMBO(    RTI RBM RTR    , &kp DOWN  )
+        COMBO(LTT LTI LTM LBR    , &kp HOME  )
+        COMBO(RTT RBI RTM RTR    , &kp HOME  )
+        COMBO(LTT LBI LTM LTR    , &kp END   )
+        COMBO(RTT RTI RTM RBR    , &kp END   )
+        COMBO(LTT LBI LTM LBR    , &kp PG_UP )
+        COMBO(RTT RBI RTM RBR    , &kp PG_UP )
+        COMBO(LTT LTI LBM LTR    , &kp PG_DN )
+        COMBO(RTT RTI RBM RTR    , &kp PG_DN )
+        COMBO(LBT LTI LTM LBR    , &kp PREV  )
+        COMBO(RBT RBI RTM RTR    , &kp PREV  )
+        COMBO(LBT LBI LTM LTR    , &kp NEXT  )
+        COMBO(RBT RTI RTM RBR    , &kp NEXT  )
+        COMBO(LBT LBI LTM LBR    , &kp VOLUP )
+        COMBO(RBT RBI RTM RBR    , &kp VOLUP )
+        COMBO(LBT LTI LBM LTR    , &kp VOLDN )
+        COMBO(RBT RTI RBM RTR    , &kp VOLDN )
 
-		COMBO( 73,  &kp HASH,   LBT LTI LTP)
-		COMBO( 74,  &kp HASH,   RBT RTI RTP)
-		COMBO( 77,  &kp AT,     LBI LBP LBT)
-		COMBO( 78,  &kp AT,     RBI RBP RBT)
-		COMBO(121,  &kp STAR,   LBI LBT LTR)
-		COMBO(122,  &kp STAR,   RBI RBT RTR)
-		COMBO(123,  &kp CARET,  LBM LBT LTP)
-		COMBO(124,  &kp CARET,  RBM RBT RTP)
-		COMBO(125,  &kp PLUS,   LBR LBT LTI)
-		COMBO(126,  &kp PLUS,   RBR RBT RTI)
-		COMBO(127,  &kp EQUAL,  LBP LBT LTM)
-		COMBO(128,  &kp EQUAL,  RBP RBT RTM)
-		COMBO(129,  &kp MINUS,  LBR LTM)
-		COMBO(130,  &kp MINUS,  RBR RTM)
-		COMBO(135,  &kp FSLH,   LBM LTR)
-		COMBO(136,  &kp FSLH,   RBM RTR)
-		COMBO(137,  &kp UNDER,  LBR LTT LTM)
-		COMBO(138,  &kp UNDER,  RBR RTT RTM)
-		COMBO(143,  &kp BSLH,   LBM LTT LTR)
-		COMBO(144,  &kp BSLH,   RBM RTT RTR)
-		COMBO(145,  &kp PRCNT,  LBR LBT LTM)
-		COMBO(146,  &kp PRCNT,  RBR RBT RTM)
-		COMBO(147,  &kp AMPS,   LBP LBT LTI)
-		COMBO(148,  &kp AMPS,   RBP RBT RTI)
-		COMBO(149,  &kp DLLR,   LBI LBT LTP)
-		COMBO(150,  &kp DLLR,   RBI RBT RTP)
-		COMBO(151,  &kp PIPE,   LBM LBT LTR)
-		COMBO(152,  &kp PIPE,   RBM RBT RTR)
-		COMBO(153,  &kp SQT,    LBP LTR)
-		COMBO(154,  &kp SQT,    RBP RTR)
-		COMBO(155,  &kp SEMI,   LBR LTP)
-		COMBO(156,  &kp SEMI,   RBR RTP)
-		COMBO(157,  &kp QMARK,  LBM LTI)
-		COMBO(158,  &kp QMARK,  RBM RTI)
-		COMBO(159,  &kp COMMA,  LBI LTM)
-		COMBO(160,  &kp COMMA,  RBI RTM)
-		COMBO(161,  &kp DQT,    LBP LTT LTR)
-		COMBO(162,  &kp DQT,    RBP RTT RTR)
-		COMBO(163,  &kp COLON,  LBR LTT LTP)
-		COMBO(164,  &kp COLON,  RBR RTT RTP)
-		COMBO(165,  &kp EXCL,   LBM LTT LTI)
-		COMBO(166,  &kp EXCL,   RBM RTT RTI)
-		COMBO(167,  &kp DOT,    LBI LTT LTM)
-		COMBO(168,  &kp DOT,    RBI RTT RTM)
-		COMBO(169,  &kp GRAVE,  LBP LBT LTR)
-		COMBO(170,  &kp GRAVE,  RBP RBT RTR)
-		COMBO(171,  &kp TILDE,  LBI LBT LTM)
-		COMBO(172,  &kp TILDE,  RBI RBT RTM)
-		COMBO(179,  &kp LSHFT,  LBI LTI)
-		COMBO(180,  &kp LSHFT,  RBI RTI)
-		COMBO(177,  &kp LCTRL,  LBM LTM)
-		COMBO(178,  &kp LCTRL,  RBM RTM)
-		COMBO(175,  &kp LALT,   LBR LTR)
-		COMBO(176,  &kp LALT,   RBR RTR)
-		COMBO(173,  &kp LMETA,  LBP LTP)
-		COMBO(174,  &kp LMETA,  RBP RTP)
-    
-		COMBO(197,  &kp ENTER,  LBI LBM LBR)
-		COMBO(198,  &kp ENTER,  RBI RBM RBR)
-		COMBO(199,  &kp TAB,    LTI LTM LTR)
-		COMBO(200,  &kp TAB,    RTI RTM RTR)
-		COMBO(201,  &kp ESC,    LBI LBM LBR LTT)
-		COMBO(202,  &kp ESC,    RBI RBM RBR RTT)
-		COMBO(203,  &kp DEL,    LTI LTM LTR LTT)
-		COMBO(204,  &kp DEL,    RTI RTM RTR RTT)
-  
-		COMBO(181,  &kp RIGHT,  LBI LTM LTR)
-		COMBO(182,  &kp RIGHT,  RTI RTM RBR)
-		COMBO(183,  &kp UP,     LBI LTM LBR)
-		COMBO(184,  &kp UP,     RBI RTM RBR)
-		COMBO(185,  &kp DOWN,   LTI LBM LTR)
-		COMBO(186,  &kp DOWN,   RTI RBM RTR)
-		COMBO(187,  &kp LEFT,   LTI LTM LBR)
-		COMBO(188,  &kp LEFT,   RBI RTM RTR)
-
-		COMBO(191,  &kp HOME,   LBR LTR LBT)
-		COMBO(192,  &kp HOME,   RBR RTR RBT)
-		COMBO(193,  &kp END,    LBM LTM LBT)
-		COMBO(194,  &kp END,    RBM RTM RBT)
-		COMBO(195,  &kp PG_DN,  LBI LTI LBT)
-		COMBO(196,  &kp PG_DN,  RBI RTI RBT)
-		COMBO(189,  &kp PG_UP,  LBP LTP LBT)
-		COMBO(190,  &kp PG_UP,  RBP RTP RBT)
+        COMBO(LBI LTI, &kp LSHFT)
+        COMBO(RBI RTI, &kp LSHFT)
+        COMBO(LBM LTM, &kp LCTRL)
+        COMBO(RBM RTM, &kp LCTRL)
+        COMBO(LBR LTR, &kp LALT )
+        COMBO(RBR RTR, &kp LALT )
+        COMBO(LBP LTP, &kp LMETA)
+        COMBO(RBP RTP, &kp LMETA)
   };
 
   behaviors {
@@ -368,53 +387,53 @@
     compatible = "zmk,keymap";
 
     default_layer {
-	  bindings = <
+      bindings = <
         KEY B      KEY B      UML F      ESZ P      NON        &to L_TAI  KEY L      KEY U      KEY Y      &to L_GAM
         RMM A      RMA R      RMC S      RMS T      FTA G      FRT M      RMS N      RMC E      RMA I      RMM O
-        UDO Z      KUT W      CPY C      PST D      SAV V	   FES K      KEY H      KEY J      KEY X      KEY Q
+        UDO Z      KUT W      CPY C      PST D      SAV V      FES K      KEY H      KEY J      KEY X      KEY Q
                                          LM1 CMMA   KEY SPC    LM3        LM2 DOT
       >;
     };
     left_layer {
-  	  bindings = <
+        bindings = <
         KEY N7     KEY N7     KEY N8     KEY N9     NON        NON        KEY BSLH   KEY PRCNT  KEY CARET  NON
         RMM N0     RMA N4     RMC N5     RMS N6     KEY PLUS   KEY ASTRK  RMS LPAR   RMC RPAR   RMA LBRC   RMM RBRC
-	    KEY EQUAL  KEY N1     KEY N2     KEY N3     KEY MINUS  KEY SLASH  KEY LBKT   KEY RBKT   KEY LT     KEY GT
+        KEY EQUAL  KEY N1     KEY N2     KEY N3     KEY MINUS  KEY SLASH  KEY LBKT   KEY RBKT   KEY LT     KEY GT
                                          NON        NON        KEY DEL    KEY COLON
-  	  >;
-	};
-	right_layer {
-  	  bindings = <
+        >;
+    };
+    right_layer {
+        bindings = <
         KEY TILDE  KEY TILDE  KEY AT     KEY HASH   NON        NON        KEY HOME   KEY UP     KEY END    NON
         RMM UNDER  RMA GRAVE  RMC APOS   RMS DQT    KEY EXCL   KEY PG_UP  KEY LEFT   KEY DOWN   KEY RIGHT  NON
-	    NON        KEY DLLR   KEY AMPS   KEY PIPE   KEY QMARK  KEY PG_DN  NON        NON        NON        NON
-            				             KEY SEMI   KEY BKSP   NON        NON
-  	  >;
-	};
-	third_layer {
-  	  bindings = <
+        NON        KEY DLLR   KEY AMPS   KEY PIPE   KEY QMARK  KEY PG_DN  NON        NON        NON        NON
+                                         KEY SEMI   KEY BKSP   NON        NON
+        >;
+    };
+    third_layer {
+        bindings = <
         KEY F7     KEY F7     KEY F8     KEY F9     NON        NON        KEY VOLDN  KEY MUTE  KEY VOLUP   NON
         RMM F12    RMA F4     RMC F5     RMS F6     KEY F10    BLU BTCLR  RMS PREV   RMC C_PP   RMA NEXT   RMM 0
         NON        KEY F1     KEY F2     KEY F3     KEY F11    NON        BLU BT1    BLU BT2    BLU BT3    BLU BT4
-            				             NON        NON        NON        NON
-  	  >;
+                                         NON        NON        NON        NON
+        >;
     };
 
     gaming_layer {
-	    bindings = <
+        bindings = <
         KEY N1     KEY N2     KEY N3     KEY N4     KEY T      &to L_DEF  NON        NON        NON        NON        
         KEY Q      KEY W      KEY E      KEY R      KEY F      NON        NON        NON        NON        NON
-        KEY LC(N6) KEY V      KEY G      KEY D      KEY B	   NON        NON        NON        NON        NON
+        KEY LC(N6) KEY V      KEY G      KEY D      KEY B      NON        NON        NON        NON        NON
                                          KEY TAB    KEY SPC    NON        NON
       >;
     }; 
 
-	taipo_layer {
+    taipo_layer {
       bindings = <
         NON NON NON NON NON DEF NON NON NON NON 
         NON NON NON NON NON NON NON NON NON NON 
         NON NON NON NON NON NON NON NON NON NON 
-    				NON NON NON NON   
+                    NON NON NON NON   
       >;
     };   
   };
