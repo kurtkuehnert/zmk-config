@@ -72,6 +72,11 @@
 #define LBP 20
 #define LTT 31
 #define LBT 30
+#define LI  13 23
+#define LM  12 22
+#define LR  11 21
+#define LP  10 20
+#define LT  31 30
 
 #define RTI 16
 #define RBI 26
@@ -83,6 +88,11 @@
 #define RBP 29
 #define RTT 32
 #define RBT 33
+#define RI  16 26
+#define RM  17 27
+#define RR  18 28
+#define RP  19 29
+#define RT  32 33
 
 #define MERGE_(a,b)  a##b
 #define LABEL_(a) MERGE_(combo_, a)
@@ -235,6 +245,32 @@
         COMBO(LBT         LTR LTP, N9)
         COMBO(RBT         RTR RTP, N9)
 
+        // functions
+        COMBO(LT  LBI     LBR    , F1)
+        COMBO(RT  RBI     RBR    , F1)
+        COMBO(LT      LBM LBR    , F2)
+        COMBO(RT      RBM RBR    , F2)
+        COMBO(LT      LBM     LBP, F3)
+        COMBO(RT      RBM     RBP, F3)
+        COMBO(LT          LBR LBP, F4)
+        COMBO(RT          RBR RBP, F4)
+        COMBO(LT  LTI LTM        , F5)
+        COMBO(RT  RTI RTM        , F5)
+        COMBO(LT  LTI     LTR    , F6)
+        COMBO(RT  RTI     RTR    , F6)
+        COMBO(LT      LTM LTR    , F7)
+        COMBO(RT      RTM RTR    , F7)
+        COMBO(LT      LTM     LTP, F8)
+        COMBO(RT      RTM     RTP, F8)
+        COMBO(LT          LTR LTP, F9)
+        COMBO(RT          RTR RTP, F9)
+        COMBO(LT  LBI LBM        , F10)
+        COMBO(RT  RBI RBM        , F10)
+        COMBO(LT  LBI LTM        , F11)
+        COMBO(RT  RBI RTM        , F11)
+        COMBO(LT  LTI LBM        , F12)
+        COMBO(RT  RTI RBM        , F12)
+
         // symbols
         COMBO(LBT LBI            , LPAR )
         COMBO(RBT RBI            , LPAR )
@@ -358,36 +394,36 @@
         COMBO(RBT     RBM RBR RBP, LG(X))
 
         // modifiers
-        COMBO(LBI LTI                        , LSHFT)
-        COMBO(RBI RTI                        , LSHFT)
-        COMBO(        LBM LTM                , LCTRL)
-        COMBO(        RBM RTM                , LCTRL)
-        COMBO(                LBR LTR        , LALT )
-        COMBO(                RBR RTR        , LALT )
-        COMBO(                        LBP LTP, LMETA)
-        COMBO(                        RBP RTP, LMETA)
-        COMBO(LBI LTI LBM LTM                , LS(LCTRL))
-        COMBO(RBI RTI RBM RTM                , LS(LCTRL))
-        COMBO(LBI LTI         LBR LTR        , LS(LALT ))
-        COMBO(RBI RTI         RBR RTR        , LS(LALT ))
-        COMBO(LBI LTI                 LBP LTP, LS(LMETA))
-        COMBO(RBI RTI                 RBP RTP, LS(LMETA))
-        COMBO(        LBM LTM LBR LTR        , LC(LALT ))
-        COMBO(        RBM RTM RBR RTR        , LC(LALT ))
-        COMBO(        LBM LTM         LBP LTP, LC(LMETA))
-        COMBO(        RBM RTM         RBP RTP, LC(LMETA))
-        COMBO(                LBR LTR LBP LTP, LA(LMETA))
-        COMBO(                RBR RTR RBP RTP, LA(LMETA))
-        COMBO(LBI LTI LBM LTM LBR LTR        , LS(LC(LALT)))
-        COMBO(RBI RTI RBM RTM RBR RTR        , LS(LC(LALT)))
-        COMBO(LBI LTI LBM LTM         LBP LTP, LS(LC(LMETA)))
-        COMBO(RBI RTI RBM RTM         RBP RTP, LS(LC(LMETA)))
-        COMBO(LBI LTI         LBR LTR LBP LTP, LS(LA(LMETA)))
-        COMBO(RBI RTI         RBR RTR RBP RTP, LS(LA(LMETA)))
-        COMBO(        LBM LTM LBR LTR LBP LTP, LC(LA(LMETA)))
-        COMBO(        RBM RTM RBR RTR RBP RTP, LC(LA(LMETA)))
-        COMBO(LBI LTI LBM LTM LBR LTR LBP LTP, LS(LC(LA(LMETA))))
-        COMBO(RBI RTI RBM RTM RBR RTR RBP RTP, LS(LC(LA(LMETA))))
+        COMBO(LI         , LSHFT)
+        COMBO(RI         , LSHFT)
+        COMBO(   LM      , LCTRL)
+        COMBO(   RM      , LCTRL)
+        COMBO(      LR   , LALT )
+        COMBO(      RR   , LALT )
+        COMBO(         LP, LMETA)
+        COMBO(         RP, LMETA)
+        COMBO(LI LM      , LS(LCTRL))
+        COMBO(RI RM      , LS(LCTRL))
+        COMBO(LI    LR   , LS(LALT ))
+        COMBO(RI    RR   , LS(LALT ))
+        COMBO(LI       LP, LS(LMETA))
+        COMBO(RI       RP, LS(LMETA))
+        COMBO(   LM LR   , LC(LALT ))
+        COMBO(   RM RR   , LC(LALT ))
+        COMBO(   LM    LP, LC(LMETA))
+        COMBO(   RM    RP, LC(LMETA))
+        COMBO(      LR LP, LA(LMETA))
+        COMBO(      RR RP, LA(LMETA))
+        COMBO(LI LM LR   , LS(LC(LALT)))
+        COMBO(RI RM RR   , LS(LC(LALT)))
+        COMBO(LI LM    LP, LS(LC(LMETA)))
+        COMBO(RI RM    RP, LS(LC(LMETA)))
+        COMBO(LI    LR LP, LS(LA(LMETA)))
+        COMBO(RI    RR RP, LS(LA(LMETA)))
+        COMBO(   LM LR LP, LC(LA(LMETA)))
+        COMBO(   RM RR RP, LC(LA(LMETA)))
+        COMBO(LI LM LR LP, LS(LC(LA(LMETA))))
+        COMBO(RI RM RR RP, LS(LC(LA(LMETA))))
   };
 
   behaviors {
