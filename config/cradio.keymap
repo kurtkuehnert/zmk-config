@@ -99,6 +99,13 @@
 / {
   combos {
     compatible = "zmk,combos";
+        // thumbs
+        COMBO(LBT                , BSPC)
+        COMBO(RBT                , BSPC)
+        COMBO(LTT                , SPC )
+        COMBO(RTT                , SPC )
+
+        // letters
         COMBO(                LBP, A)
         COMBO(                RBP, A)
         COMBO(            LTR LTP, B)
@@ -151,7 +158,8 @@
         COMBO(    RTI RTM        , Y)
         COMBO(        LTM     LTP, Z)
         COMBO(        RTM     RTP, Z)
-
+        
+        // capital letters
         COMBO(LTT             LBP, LS(A))
         COMBO(RTT             RBP, LS(A))
         COMBO(LTT         LTR LTP, LS(B))
@@ -205,11 +213,7 @@
         COMBO(LTT     LTM     LTP, LS(Z))
         COMBO(RTT     RTM     RTP, LS(Z))
 
-        COMBO(LBT                , BSPC)
-        COMBO(RBT                , BSPC)
-        COMBO(LTT                , SPC )
-        COMBO(RTT                , SPC )
-
+        // numbers
         COMBO(LBT LBI LBM        , N0)
         COMBO(RBT RBI RBM        , N0)
         COMBO(LBT LBI     LBR    , N1)
@@ -231,23 +235,23 @@
         COMBO(LBT         LTR LTP, N9)
         COMBO(RBT         RTR RTP, N9)
 
-        COMBO(LBT LBI            , LPAR)
-        COMBO(RBT RBI            , LPAR)
-        COMBO(LBT LTI            , RPAR)
-        COMBO(RBT RTI            , RPAR)
-        COMBO(LBT     LBM        , LBKT)
-        COMBO(RBT     RBM        , LBKT)
-        COMBO(LBT     LTM        , RBKT)
-        COMBO(RBT     RTM        , RBKT)
-        COMBO(LBT         LBR    , LBRC)
-        COMBO(RBT         RBR    , LBRC)
-        COMBO(LBT         LTR    , RBRC)
-        COMBO(RBT         RTR    , RBRC)
-        COMBO(LBT             LBP, LT  )
-        COMBO(RBT             RBP, LT  )
-        COMBO(LBT             LTP, GT  )
-        COMBO(RBT             RTP, GT  )
-
+        // symbols
+        COMBO(LBT LBI            , LPAR )
+        COMBO(RBT RBI            , LPAR )
+        COMBO(LBT LTI            , RPAR )
+        COMBO(RBT RTI            , RPAR )
+        COMBO(LBT     LBM        , LBKT )
+        COMBO(RBT     RBM        , LBKT )
+        COMBO(LBT     LTM        , RBKT )
+        COMBO(RBT     RTM        , RBKT )
+        COMBO(LBT         LBR    , LBRC )
+        COMBO(RBT         RBR    , LBRC )
+        COMBO(LBT         LTR    , RBRC )
+        COMBO(RBT         RTR    , RBRC )
+        COMBO(LBT             LBP, LT   )
+        COMBO(RBT             RBP, LT   )
+        COMBO(LBT             LTP, GT   )
+        COMBO(RBT             RTP, GT   )
         COMBO(    LTI LBM        , QMARK)
         COMBO(    RTI RBM        , QMARK)
         COMBO(    LBI LTM        , COMMA)
@@ -301,6 +305,7 @@
         COMBO(LBT         LBR LTP, LA(S))
         COMBO(RBT         RBR RTP, LA(S))
 
+        // navigation + media
         COMBO(    LBI LBM LBR    , ENTER)
         COMBO(    RBI RBM RBR    , ENTER)
         COMBO(    LTI LTM LTR    , TAB  )
@@ -309,11 +314,10 @@
         COMBO(RTT RBI RBM RBR    , ESC  )
         COMBO(LTT LTI LTM LTR    , DEL  )
         COMBO(RTT RTI RTM RTR    , DEL  )
-        COMBO(LTT LBI LBM LBR    , C_PP )
-        COMBO(RTT RBI RBM RBR    , C_PP )
-        COMBO(LTT LTI LTM LTR    , MUTE )
-        COMBO(RTT RTI RTM RTR    , MUTE )
-
+        COMBO(LBT LBI LBM LBR    , C_PP )
+        COMBO(RBT RBI RBM RBR    , C_PP )
+        COMBO(LBT LTI LTM LTR    , MUTE )
+        COMBO(RBT RTI RTM RTR    , MUTE )
         COMBO(    LTI LTM LBR    , LEFT )
         COMBO(    RBI RTM RTR    , LEFT )
         COMBO(    LBI LTM LTR    , RIGHT)
@@ -339,6 +343,21 @@
         COMBO(LBT LTI LBM LTR    , VOLDN)
         COMBO(RBT RTI RBM RTR    , VOLDN)
 
+        // shortcuts
+        COMBO(        LTM LTR LTP, LG(S))
+        COMBO(        RTM RTR RTP, LG(S))
+        COMBO(LTT     LTM LTR LTP, LG(Z))
+        COMBO(RTT     RTM RTR RTP, LG(Z))
+        COMBO(LBT     LTM LTR LTP, LS(LG(Z)))
+        COMBO(RBT     RTM RTR RTP, LS(LG(Z)))
+        COMBO(        LBM LBR LBP, LG(V))
+        COMBO(        RBM RBR RBP, LG(V))
+        COMBO(LTT     LBM LBR LBP, LG(C))
+        COMBO(RTT     RBM RBR RBP, LG(C))
+        COMBO(LBT     LBM LBR LBP, LG(X))
+        COMBO(RBT     RBM RBR RBP, LG(X))
+
+        // modifiers
         COMBO(LBI LTI                        , LSHFT)
         COMBO(RBI RTI                        , LSHFT)
         COMBO(        LBM LTM                , LCTRL)
