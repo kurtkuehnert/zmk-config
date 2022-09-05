@@ -9,6 +9,7 @@
 #define L_TRD   3
 #define L_GAM   4
 #define L_TAI   5
+#define L_TAI2  6
 
 // redefine to fit width of three
 #define TRN     &trans
@@ -98,17 +99,35 @@
 #define LABEL_(a) MERGE_(combo_, a)
 #define UNIQUE_COMBO LABEL_(__LINE__)
 
-#define COMBO(KEYPOS, BINDING)     \
+#define LAYER_COMBO(KEYPOS, LAYER) \
+    UNIQUE_COMBO {                 \    
+        layers = <L_TAI>;          \
+        timeout-ms = <50>;         \
+        key-positions = <KEYPOS>;  \
+        bindings = <&mo LAYER>;    \
+    };
+
+#define COMBO(KEYPOS, KEY)         \
     UNIQUE_COMBO {                 \
         layers = <L_TAI>;          \
         timeout-ms = <50>;         \
         key-positions = <KEYPOS>;  \
-        bindings = <&kp BINDING>;  \
+        bindings = <&kp KEY>;      \
+    };
+
+#define COMBO2(KEYPOS, KEY)        \
+    UNIQUE_COMBO2 {                \
+        layers = <L_TAI2>;         \
+        timeout-ms = <50>;         \
+        key-positions = <KEYPOS>;  \
+        bindings = <&kp KEY>;      \
     };
 
 / {
   combos {
     compatible = "zmk,combos";
+        LAYER_COMBO(LBT, L_TAI2);
+        
         // thumbs
         COMBO(LDT                ,              BSPC)
         COMBO(RDT                ,              BSPC)
@@ -353,24 +372,6 @@
         COMBO(LDT LUI LDM LUR    ,             VOLDN)
         COMBO(RDT RUI RDM RUR    ,             VOLDN)
 
-        // navigation
-        COMBO(LBT         LDR    ,              LEFT)
-        COMBO(RBT  RDI           ,              LEFT)
-        COMBO(LBT  LDI           ,             RIGHT)
-        COMBO(RBT         RDR    ,             RIGHT)
-        COMBO(LBT     LUM        ,                UP)
-        COMBO(RBT     RUM        ,                UP)
-        COMBO(LBT     LDM        ,              DOWN)
-        COMBO(RBT     RDM        ,              DOWN)
-        COMBO(LBT         LUR    ,              HOME)
-        COMBO(RBT  RUI           ,              HOME)
-        COMBO(LBT  LUI           ,               END)
-        COMBO(RBT         RUR    ,               END)
-        COMBO(LBT             LUP,             PG_UP)
-        COMBO(RBT             RUP,             PG_UP)
-        COMBO(LBT             LDP,             PG_DN)
-        COMBO(RBT             RDP,             PG_DN)
-
         // functions
         COMBO(LBT LDI     LDR    ,                F1)
         COMBO(RBT RDI     RDR    ,                F1)
@@ -428,6 +429,24 @@
         COMBO(        RBM RBR RBP,     LC(LA(LMETA)))
         COMBO(    LBI LBM LBR LBP, LS(LC(LA(LMETA))))
         COMBO(    RBI RBM RBR RBP, LS(LC(LA(LMETA))))
+
+        // navigation
+        COMBO2(           LDR    ,              LEFT)
+        COMBO2(    RDI           ,              LEFT)
+        COMBO2(    LDI           ,             RIGHT)
+        COMBO2(           RDR    ,             RIGHT)
+        COMBO2(       LUM        ,                UP)
+        COMBO2(       RUM        ,                UP)
+        COMBO2(       LDM        ,              DOWN)
+        COMBO2(       RDM        ,              DOWN)
+        COMBO2(           LUR    ,              HOME)
+        COMBO2(    RUI           ,              HOME)
+        COMBO2(    LUI           ,               END)
+        COMBO2(           RUR    ,               END)
+        COMBO2(               LUP,             PG_UP)
+        COMBO2(               RUP,             PG_UP)
+        COMBO2(               LDP,             PG_DN)
+        COMBO2(               RDP,             PG_DN)
   };
 
   behaviors {
@@ -503,6 +522,15 @@
     }; 
 
     taipo_layer {
+      bindings = <
+        NON NON NON NON NON DEF NON NON NON NON 
+        NON NON NON NON NON NON NON NON NON NON 
+        NON NON NON NON NON NON NON NON NON NON 
+                    NON NON NON NON   
+      >;
+    };   
+
+    taipo2_layer {
       bindings = <
         NON NON NON NON NON DEF NON NON NON NON 
         NON NON NON NON NON NON NON NON NON NON 
