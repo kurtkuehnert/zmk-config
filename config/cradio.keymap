@@ -99,12 +99,12 @@
 #define LABEL_(a) MERGE_(combo_, a)
 #define UNIQUE_COMBO LABEL_(__LINE__)
 
-#define LAYER_COMBO(KEYPOS)          \
-    UNIQUE_COMBO {                   \
-        layers = <L_TAI>;            \
-        timeout-ms = <50>;           \
-        key-positions = <KEYPOS>;    \
-        bindings = <&lm L_TAI2 SPC>; \
+#define LAYER_COMBO(KEYPOS)           \
+    UNIQUE_COMBO {                    \
+        layers = <L_TAI>;             \
+        timeout-ms = <50>;            \
+        key-positions = <KEYPOS>;     \
+        bindings = <&llm L_TAI2 SPC>; \
     };
 
 #define COMBO1(KEYPOS, KEY)        \
@@ -472,6 +472,14 @@
       tapping-term-ms = <150>;
       bindings = <&mo>, <&key_repeat>;
     };
+    llm: long_layer_mod {
+      compatible = "zmk,behavior-hold-tap";
+      label = "LAYER_MOD";
+      #binding-cells = <2>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <220>;
+      bindings = <&mo>, <&kp>;
+    }; 
   };
 
   keymap {
