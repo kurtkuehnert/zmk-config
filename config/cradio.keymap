@@ -100,7 +100,7 @@
 #define UNIQUE_COMBO LABEL_(__LINE__)
 
 #define LAYER_COMBO(KEYPOS, LAYER) \
-    UNIQUE_COMBO {                 \    
+    UNIQUE_COMBO {                 \
         layers = <L_TAI>;          \
         timeout-ms = <50>;         \
         key-positions = <KEYPOS>;  \
@@ -116,7 +116,7 @@
     };
 
 #define COMBO2(KEYPOS, KEY)        \
-    UNIQUE_COMBO2 {                \
+    UNIQUE_COMBO {                 \
         layers = <L_TAI2>;         \
         timeout-ms = <50>;         \
         key-positions = <KEYPOS>;  \
