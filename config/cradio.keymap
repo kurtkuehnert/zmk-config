@@ -99,15 +99,15 @@
 #define LABEL_(a) MERGE_(combo_, a)
 #define UNIQUE_COMBO LABEL_(__LINE__)
 
-#define LAYER_COMBO(KEYPOS, LAYER) \
-    UNIQUE_COMBO {                 \
-        layers = <L_TAI>;          \
-        timeout-ms = <50>;         \
-        key-positions = <KEYPOS>;  \
-        bindings = <&mo LAYER>;    \
+#define LAYER_COMBO(KEYPOS)          \
+    UNIQUE_COMBO {                   \
+        layers = <L_TAI>;            \
+        timeout-ms = <50>;           \
+        key-positions = <KEYPOS>;    \
+        bindings = <&lm L_TAI2 SPC>; \
     };
 
-#define COMBO1(KEYPOS, KEY)         \
+#define COMBO1(KEYPOS, KEY)        \
     UNIQUE_COMBO {                 \
         layers = <L_TAI>;          \
         timeout-ms = <50>;         \
@@ -126,14 +126,11 @@
 / {
   combos {
     compatible = "zmk,combos";
-        LAYER_COMBO(LBT           ,            L_TAI2)
-        LAYER_COMBO(RBT           ,            L_TAI2)
-        
         // thumbs
         COMBO1(LDT                ,              BSPC)
         COMBO1(RDT                ,              BSPC)
-        COMBO1(LUT                ,               SPC)
-        COMBO1(RUT                ,               SPC)
+        LAYER_COMBO(LUT)
+        LAYER_COMBO(RUT)
 
         // letters
         COMBO1(                LDP,                 A)
