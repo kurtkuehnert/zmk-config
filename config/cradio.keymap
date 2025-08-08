@@ -453,7 +453,9 @@
       label = "HOLD_MOD";
       #binding-cells = <2>;
       flavor = "tap-preferred";
-      tapping-term-ms = <150>;
+      tapping-term-ms = <200>;
+      quick-tap-ms = <175>;
+      require-prior-idle-ms = <125>;
       bindings = <&kp>, <&kp>;
     };
     lm: layer_mod {
@@ -461,7 +463,9 @@
       label = "LAYER_MOD";
       #binding-cells = <2>;
       flavor = "tap-preferred";
-      tapping-term-ms = <150>;
+      tapping-term-ms = <200>;
+      quick-tap-ms = <175>;
+      require-prior-idle-ms = <125>;
       bindings = <&mo>, <&kp>;
     }; 
     rm: repeat_mod {
@@ -469,7 +473,9 @@
       label = "REPEAT_MOD";
       #binding-cells = <2>;
       flavor = "tap-preferred";
-      tapping-term-ms = <150>;
+      tapping-term-ms = <200>;
+      quick-tap-ms = <175>;
+      require-prior-idle-ms = <125>;
       bindings = <&mo>, <&key_repeat>;
     };
     llm: long_layer_mod {
